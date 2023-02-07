@@ -1,9 +1,15 @@
 import React, {useState} from 'react';
-import Calendar from 'react-calendar'
+import Calendar, { DateCallback } from 'react-calendar'
+import './../App.css'
 
 const Cal = () => {
+    function highLighter():any{
+        console.log('clicked')
+    }
     return (
-        <Calendar/>
+        <div id='cal'>
+        <Calendar onClickDay={() => highLighter()}/>
+        </div>
     )
 }
 
