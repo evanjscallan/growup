@@ -1,18 +1,11 @@
-import React, { useState } from 'react';
-import logo from './logo.svg';
-import './App.css';
-import Cal from './components/Calendar'
-import CustomCalendar from './components/CustomCalendar'
+import { CustomCalendar } from "./components/CustomCalendar";
 
-function App(props:any) {
-  
-  return (
-    <div className="App">
-      <h1>GrowUp</h1>
-   
-      <CustomCalendar/>
-    </div>
-  );
+import type { FC } from "react";
+
+import "./App.css";
+
+const App: FC = () => {
+  return <CustomCalendar />;
 }
 
 export default App;
