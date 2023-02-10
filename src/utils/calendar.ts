@@ -3,7 +3,7 @@ export const getDayOfWeek = (date: Date) => {
     date
   );
 }
-
+const ahhh = new Intl.DateTimeFormat("en-US")
 export const getDate = (date: Date) => {
   return new Intl.DateTimeFormat("en-US", { day: '2-digit' }).format(
     date
@@ -44,7 +44,7 @@ export const generateCalendar = (): Map<number, Map<string, Date[]>> => {
     }
     // New day
     else {
-      const daysInMonth = existingYearMap.get(month) ?? [];
+      let daysInMonth = existingYearMap.get(month) ?? [];
       daysInMonth?.push(dateObj);
       existingYearMap.set(month, daysInMonth);
       organizedDates.set(year, existingYearMap);

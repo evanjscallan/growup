@@ -1,33 +1,48 @@
 import { generateCalendar, getDate, getDayOfWeek } from "../utils/calendar";
-
+import React, {useState} from 'react'
 import type { FC } from 'react';
-
+import './../App.css'
 export const CustomCalendar: FC = () => {
+  const [style, setStyle] = useState('normal')
+  const [active, setActive] = useState(false)
   const dates = generateCalendar();
 
-
+  const highlightOneCell = (e: any) => {
+    setActive(!active)
+    if (!active){
+      e.target.className = 'clicked'
+    }
+    if (active){
+      e.target.className = 'cellBlock'
+    }
+  }
 
   return (
+    <>
     <div>
       {[...dates.entries()].map(([year, months]) => (
         <div>
-          <div style={{ width: '100%', textAlign: 'center', fontSize: 30, marginBottom: '4em' }}>{year}</div>
+          <div  className="yearClass">{year}</div>
           <div>
             {[...months.entries()].map(([month, days]) => (
-              <div key={month}>
-                <div style={{ width: '100%', textAlign: 'center', fontSize: 24 }}>{month}</div>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(7, minmax(0, 1fr))' }}>
+              <div className='monthClass' key={month}>
+                <div>{month}</div>
+                <div className='monthy'>
+                <div className='griddy' >
                   {days.map((day) => (
-                    <div style={{ display: 'flex', aspectRatio: '1 / 1', border: '1px solid black' }}>
-                      <p>{getDayOfWeek(day)} - {getDate(day)}</p>
+                    <div onClick={(e) => highlightOneCell(e)}  className='cellBlock' >
+                      <p className='cell'>{getDate(day)}</p>
                     </div>
                   ))}
+                  </div>
                 </div>
               </div>
             ))}
-          </div>
+          </div>  
         </div>
       ))}
+      
     </div>
+    </>
   );
 };

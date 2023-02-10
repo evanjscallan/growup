@@ -2,6 +2,56 @@
   text-align: center;
 }
 
+.griddy{
+  margin: 4rem;
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr)); 
+}
+
+.monthy{
+  display: flex;
+ 
+  justify-content: center;
+  align-items: center;
+ 
+}
+
+.cellBlock{
+  display: flex;
+  width: 100px;
+  height: 100px;
+  aspect-ratio: '1/1';
+  -webkit-aspect-ratio: '1/1';
+  border: 1px solid black;
+}
+
+.yearClass{
+  width: 100%;
+  text-align: center;
+  font-size: 60px;
+  margin-bottom: 1em;
+  
+}
+
+.monthClass{
+  border-radius: 3%;
+  box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.2),
+  2px 2px 2px 2px rgba(0,0,0,0.2),
+  3px 3px 3px 3px rgba(0,0,0,0.2),
+  4px 4px 4px 4px rgba(0,0,0,0.2);
+  
+  margin: 4rem;
+  text-align: center;
+  font-size: 40px;
+  
+}
+
+.clicked{
+  background-color: lightcoral;
+  width: 100px;
+  height: 100px;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -36,3 +86,5 @@
     transform: rotate(360deg);
   }
 }
+
+
