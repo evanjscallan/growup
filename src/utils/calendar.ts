@@ -1,14 +1,28 @@
 export const getDayOfWeek = (date: Date) => {
-  return new Intl.DateTimeFormat("en-US", { weekday: 'long' }).format(
-    date
-  );
-}
-const ahhh = new Intl.DateTimeFormat("en-US")
+  return new Intl.DateTimeFormat("en-US", { weekday: "short" }).format(date);
+};
+
+export const getCalendarOffset = (date: Date) => {
+  return date.getDay();
+};
+
 export const getDate = (date: Date) => {
-  return new Intl.DateTimeFormat("en-US", { day: '2-digit' }).format(
-    date
-  );
-}
+  return new Intl.DateTimeFormat("en-US", { day: "numeric" }).format(date);
+};
+
+export const getDateOrdinal = (d: number) => {
+  if (d > 3 && d < 21) return "th";
+  switch (d % 10) {
+    case 1:
+      return "st";
+    case 2:
+      return "nd";
+    case 3:
+      return "rd";
+    default:
+      return "th";
+  }
+};
 
 export const generateCalendar = (): Map<number, Map<string, Date[]>> => {
   let today = new Date();
