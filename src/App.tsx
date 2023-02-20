@@ -1,23 +1,30 @@
 import { CustomCalendar } from "./components/CustomCalendar";
 import { PlantDropdown } from "./components/PlantDropdown";
 import { DropdownOptionUI } from "./components/DropdownOptionUI";
+import plants from './utils/dummyData.json'
 import React, { useState } from 'react';
 import type { FC, Dispatch, SetStateAction } from "react";
 import "./App.css";
 
 
-let plantInfo = {
-  plantName: 'Rhodesian Eggplant',
-  plantType: 'Poisonous edible plant.',
-  plantDescription: 'The rhodesian eggplant is a species native to antartica. It is blue and has wings.',
-  waterFreq: 1,
-  plantWaterFreqDescription: 'Once Weekly',
-  plantSunlightNeeds: "Medium",
-  plantImg: 'https://images.unsplash.com/photo-1613881553903-4543f5f2cac9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80'
-}
 
 const App: FC = () => {
-  //set plantInfo boolean in higher component for scaleability; pass as props
+
+  //import from dummyData.json
+  //next: find a way to map multiple plants to multiple drop-downs.
+  let plant: any = plants.persianShieldPlant
+
+  let plantInfo = {
+    plantName: plant.plantName,
+    plantType: plant.plantType,
+    plantDescription: plant.plantDescription,
+    plantWaterFreq: plant.plantWaterFreq,
+    plantWaterFreqDescription: plant.plantWaterFreqDescription,
+    plantSunlightNeeds: plant.plantSunlightNeeds,
+    plantImg: plant.plantImg
+  } 
+
+
   let [plantUIDisplay, setPlantUIDisplay]: any = useState(false)
   let [plantName, setPlantName]: any = useState(plantInfo.plantName)
   let [plantDescription, setPlantDescription]: any = useState(plantInfo.plantDescription)
@@ -25,29 +32,30 @@ const App: FC = () => {
   let [plantSunlightNeeds, setPlantSunlightNeeds]: any = useState(plantInfo.plantSunlightNeeds)
   let [plantImg, setPlantImg]: any = useState(plantInfo.plantImg)
 
+  //for targeting drop down selection in DropdownOptionUI and updating based on chosen plant
+  let [dropdownSelection, setDropdownSelection]: any = useState('')
+
   return (
   <>
   <PlantDropdown
+  dropdownSelection={dropdownSelection}
+  setDropdownSelection={setDropdownSelection}
   plantUIDisplay={plantUIDisplay} 
   setPlantUIDisplay={setPlantUIDisplay}
   />
-
   {plantUIDisplay ?
    <DropdownOptionUI
-    plantUIDisplay={plantUIDisplay} 
-    setPlantUIDisplay={setPlantUIDisplay}
+     dropdownSelection={dropdownSelection}
+     setDropdownSelection={setDropdownSelection}
     plantName={plantName}
     plantDescription={plantDescription}
     plantWaterFreqDescription={plantWaterFreqDescription}
     plantSunlightNeeds={plantSunlightNeeds}
     plantImg={plantImg}
-   /> :
-    null}
-
+    plantUIDisplay={plantUIDisplay} 
+    setPlantUIDisplay={setPlantUIDisplay}
+   /> : null}
   <CustomCalendar/>
-
-
-  
   </>
   );
 }
@@ -56,17 +64,10 @@ export default App;
 
 
 
-/*data funnel:
-multiple values from json or object:
-plant {
-    a: dfsj,
-    b: sdflkj
-    c: sdlkfj
-}
-
+/* Additional Notes:
+--Prospective Process--
 pass in data into App.tsx
 pass to plantdropdown as props
 compare option value with plant id
 if match, display UI containing all of the data that has that id
-
 */

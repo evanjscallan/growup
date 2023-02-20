@@ -3,21 +3,25 @@ import './../App.css'
 import svg from './../assets/close-circle.svg'
 
 
+
+
 interface OptionProps {
     plantName: string,
     plantDescription: string,
     plantWaterFreqDescription: string,
     plantSunlightNeeds: string,
-    plantImg: any
-    plantUIDisplay: any
+    plantImg: any,
+    plantUIDisplay: any,
     setPlantUIDisplay: Dispatch<SetStateAction<any>>
+    dropdownSelection: any,
+    setDropdownSelection: Dispatch<SetStateAction<any>>
 }
 
 
 
 export const DropdownOptionUI: string | FC<OptionProps> = ({ plantName, plantDescription, 
     plantWaterFreqDescription, plantSunlightNeeds, plantImg, plantUIDisplay,
-    setPlantUIDisplay }) => {
+    setPlantUIDisplay, dropdownSelection, setDropdownSelection }) => {
 
         const hideUI = () => {
            setPlantUIDisplay(plantUIDisplay = false)
@@ -25,8 +29,9 @@ export const DropdownOptionUI: string | FC<OptionProps> = ({ plantName, plantDes
 
     return(
         <div className='plant-info-modal'>
-            <img className='plant-modal-close-out' onClick={hideUI} src={svg} alt='X'/>
+        <img className='plant-modal-close-out' onClick={hideUI} src={svg} alt='X'/>
         <h1>Plant Information for { plantName }</h1>
+      
         <ul>
             <li><b>Name:</b> { plantName } </li>
             <li><b>Description:</b>  { plantDescription } </li>

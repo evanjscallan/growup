@@ -4,11 +4,13 @@ import React, {useState, Dispatch, SetStateAction, FC} from 'react';
 interface PlantDropdownProps {
     plantUIDisplay: any
     setPlantUIDisplay: Dispatch<SetStateAction<any>>
+    dropdownSelection: any,
+    setDropdownSelection: Dispatch<SetStateAction<any>>
   }
   
 //props from App.tsx
 export const PlantDropdown: FC<PlantDropdownProps> = 
-({ plantUIDisplay, setPlantUIDisplay}) => {
+({ plantUIDisplay, setPlantUIDisplay, dropdownSelection, setDropdownSelection}) => {
     const initialDropdownState: string = ''
     const displayPlantInfo = (event:any):any => {
     setPlantUIDisplay(plantUIDisplay = true)
