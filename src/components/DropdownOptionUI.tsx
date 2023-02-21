@@ -8,7 +8,7 @@ interface OptionProps {
     dropdownSelection: any,
     setDropdownSelection: Dispatch<SetStateAction<any>>
 }
-
+//
 type Plant = {
     plantName: string
     plantDescription: string,

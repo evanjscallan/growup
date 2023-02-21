@@ -116,7 +116,9 @@
   background-color: rgb(71, 98, 71);
   color: white;
   aspect-ratio: 4/3;
+  overflow-y: auto;
   padding: 4rem;
+  height: 100%;
   max-width: 30%;
   opacity: 100%;
   border-radius: 5px;
@@ -129,6 +131,9 @@
   list-style: none;
 }
 
+.plant-info-modal img {
+  margin-bottom: 1rem;
+}
 
 .plant-modal-close-out{
   align-self: flex-end;

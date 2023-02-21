@@ -6,11 +6,13 @@ interface PlantDropdownProps {
     setPlantUIDisplay: Dispatch<SetStateAction<any>>
     dropdownSelection: any,
     setDropdownSelection: Dispatch<SetStateAction<any>>
-    
   }
+
+
 type Plant = {
     plantName: string;
 }
+
 //props from App.tsx
 export const PlantDropdown: FC<PlantDropdownProps> = 
 ({ plantUIDisplay, setPlantUIDisplay, dropdownSelection, setDropdownSelection }) => {
@@ -22,9 +24,8 @@ export const PlantDropdown: FC<PlantDropdownProps> =
         }
     else {
         setDropdownSelection(event.target.value)
+        }
     }
-    }
-
     return(
         <>
             <label htmlFor='plant-names'>Select Plant</label>
@@ -33,7 +34,6 @@ export const PlantDropdown: FC<PlantDropdownProps> =
                 { (Object.entries(plants) as [string, Plant][]).map((plant) => (
                     <option value={plant[1].plantName}>{plant[1].plantName}</option>
                 ))}
-               
             </select>
         </>
     )
