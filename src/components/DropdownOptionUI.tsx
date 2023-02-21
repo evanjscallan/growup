@@ -1,32 +1,36 @@
 import React, { useState, FC, Dispatch, SetStateAction } from 'react'
 import './../App.css'
 import svg from './../assets/close-circle.svg'
-
-
-
-
+import plants from './../utils/dummyData.json'
 interface OptionProps {
-    plantName: string,
-    plantDescription: string,
-    plantWaterFreqDescription: string,
-    plantSunlightNeeds: string,
-    plantImg: any,
     plantUIDisplay: any,
     setPlantUIDisplay: Dispatch<SetStateAction<any>>
     dropdownSelection: any,
     setDropdownSelection: Dispatch<SetStateAction<any>>
 }
 
+type Plant = {
+    plantName: string
+    plantDescription: string,
+    plantSunlightNeeds: string,
+    plantImg: string,
+    plantWaterFreqDescription: string
 
+}
 
-export const DropdownOptionUI: string | FC<OptionProps> = ({ plantName, plantDescription, 
-    plantWaterFreqDescription, plantSunlightNeeds, plantImg, plantUIDisplay,
+export const DropdownOptionUI: string | FC<OptionProps> = ({ plantUIDisplay,
     setPlantUIDisplay, dropdownSelection, setDropdownSelection }) => {
-
         const hideUI = () => {
            setPlantUIDisplay(plantUIDisplay = false)
         }
+        const selectedPlant = (Object.values(plants) as Plant[]).find((plant) => (
+            plant.plantName === dropdownSelection
+        ))
+        if (selectedPlant === undefined){
+            return null
+        }
 
+        const { plantName, plantDescription,plantSunlightNeeds, plantImg, plantWaterFreqDescription } = selectedPlant
     return(
         <div className='plant-info-modal'>
         <img className='plant-modal-close-out' onClick={hideUI} src={svg} alt='X'/>

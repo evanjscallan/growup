@@ -2,6 +2,7 @@
   text-align: center;
 }
 
+
 .griddy {
   margin: 4rem;
   padding: 2rem;
@@ -22,7 +23,7 @@
 
 
 .cellBlock.inactive:hover {
-  background-color: #f0808040;
+  background-color: #63aaede4;
 }
 
 .cellBlock:not(.placeholder):hover {
@@ -72,7 +73,7 @@
 }
 
 .active {
-  background-color: lightcoral;
+  background-color: rgb(132, 197, 149);
   width: 100px;
   height: 100px;
 }
@@ -116,6 +117,7 @@
   color: white;
   aspect-ratio: 4/3;
   padding: 4rem;
+  max-width: 30%;
   opacity: 100%;
   border-radius: 5px;
   box-shadow: 

@@ -36,27 +36,24 @@ const App: FC = () => {
   let [dropdownSelection, setDropdownSelection]: any = useState('')
 
   return (
-  <>
+  <div className='main'>
   <PlantDropdown
   dropdownSelection={dropdownSelection}
   setDropdownSelection={setDropdownSelection}
   plantUIDisplay={plantUIDisplay} 
   setPlantUIDisplay={setPlantUIDisplay}
   />
+
   {plantUIDisplay ?
    <DropdownOptionUI
-     dropdownSelection={dropdownSelection}
-     setDropdownSelection={setDropdownSelection}
-    plantName={plantName}
-    plantDescription={plantDescription}
-    plantWaterFreqDescription={plantWaterFreqDescription}
-    plantSunlightNeeds={plantSunlightNeeds}
-    plantImg={plantImg}
+    dropdownSelection={dropdownSelection}
+    setDropdownSelection={setDropdownSelection}
+   
     plantUIDisplay={plantUIDisplay} 
     setPlantUIDisplay={setPlantUIDisplay}
    /> : null}
   <CustomCalendar/>
-  </>
+  </div>
   );
 }
 
