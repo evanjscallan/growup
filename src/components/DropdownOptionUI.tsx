@@ -1,7 +1,10 @@
-import React, { useState, FC, Dispatch, SetStateAction } from 'react'
+import React, { useState, useEffect, FC, Dispatch, SetStateAction } from 'react'
 import './../App.css'
 import svg from './../assets/close-circle.svg'
 import plants from './../utils/dummyData.json'
+import anime from 'animejs'
+
+
 interface OptionProps {
     plantUIDisplay: any,
     setPlantUIDisplay: Dispatch<SetStateAction<any>>
@@ -18,22 +21,33 @@ type Plant = {
 
 }
 
+
 export const DropdownOptionUI: string | FC<OptionProps> = ({ plantUIDisplay,
     setPlantUIDisplay, dropdownSelection, setDropdownSelection }) => {
+       
+          
+          
         const hideUI = () => {
-           setPlantUIDisplay(plantUIDisplay = false)
+                setPlantUIDisplay(plantUIDisplay = false)
+               
+              
+            
         }
         const selectedPlant = (Object.values(plants) as Plant[]).find((plant) => (
-            plant.plantName === dropdownSelection
+            plant.plantName === dropdownSelection  
         ))
         if (selectedPlant === undefined){
+          
             return null
         }
 
-        const { plantName, plantDescription,plantSunlightNeeds, plantImg, plantWaterFreqDescription } = selectedPlant
+            
+     const { plantName, plantDescription,plantSunlightNeeds, plantImg, plantWaterFreqDescription } = selectedPlant
+     
     return(
         <div className='plant-info-modal'>
         <img className='plant-modal-close-out' onClick={hideUI} src={svg} alt='X'/>
+        
         <h1>Plant Information for { plantName }</h1>
       
         <ul>
@@ -44,8 +58,10 @@ export const DropdownOptionUI: string | FC<OptionProps> = ({ plantUIDisplay,
             <div>
                 <img className='plant-image' src={plantImg} alt='image of rhodesian eggplant' width='300'/>
             </div>
+
        </ul>
        </div>
+     
     )
 }
 

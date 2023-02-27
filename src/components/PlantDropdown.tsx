@@ -1,6 +1,6 @@
 import React, {useState, Dispatch, SetStateAction, FC} from 'react';
 import plants from './../utils/dummyData.json'
-
+import anime from 'animejs'
 interface PlantDropdownProps {
     plantUIDisplay: any
     setPlantUIDisplay: Dispatch<SetStateAction<any>>
@@ -21,11 +21,22 @@ export const PlantDropdown: FC<PlantDropdownProps> =
     setPlantUIDisplay(plantUIDisplay = true)
     if (event.target.value === ''){
         setPlantUIDisplay(plantUIDisplay = false)
-        }
-    else {
-        setDropdownSelection(event.target.value)
-        }
+
+        setDropdownSelection(null)
     }
+    else {
+
+        }
+        setDropdownSelection(event.target.value)
+    
+
+  
+    
+
+    }
+
+
+
     return(
         <>
             <label htmlFor='plant-names'>Select Plant</label>

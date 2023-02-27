@@ -2,13 +2,16 @@ import { CustomCalendar } from "./components/CustomCalendar";
 import { PlantDropdown } from "./components/PlantDropdown";
 import { DropdownOptionUI } from "./components/DropdownOptionUI";
 import plants from './utils/dummyData.json'
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import type { FC, Dispatch, SetStateAction } from "react";
 import "./App.css";
+import anime from 'animejs'
 
 
 
 const App: FC = () => {
+  
+
 
   //import from dummyData.json
   //next: find a way to map multiple plants to multiple drop-downs.

@@ -2,7 +2,7 @@
     "persianShieldPlant": {
         "plantName": "Persian Shield Plant",
         "plantDescription": "A Persian Shield plant, sometimes called a Royal Purple plant, is a tropical, fast growing plant that loves high humidity and warm temperatures. It has dark green, iridescent leaves with metallic, light purple stripes. Originally from Myanmar (Burma) not Persia, it gets the name Persian Shield because the leaves resemble little, feudal battle shields. The pale purple flowers of a Persian Shield plant can’t compare to the beautiful leaves. This plant can be planted outdoors, but does even better as a potted, indoor plant.",
-        "plantType": "House Plant",
+        "plantType": "Shield",
         "plantSunlightNeeds": "A Persian Shield plant needs bright indirect light to maintain the vibrant colors in its leaves; but no direct afternoon sun or the leaves may be damaged. The plant becomes thin and leggy when there is not enough light.",
         "plantWaterFreq": ["1", "w"],
         "plantWaterFreqDescription": "Once Weekly",
@@ -11,10 +11,19 @@
     "bambooPalm": {
         "plantName": "Bamboo Palm",
         "plantDescription": "Potted bamboo palms bring color and warmth to any room in the house. There are many tropical delights to choose from, but most need bright indirect light in order to thrive. Bamboo palm (Chamaedorea seifrizii) is an exception to this rule and will grow in low light conditions, although they will grow taller with more light. Mature height varies from 4 to 12 feet (1 to 3.5 m.) with a span of 3 to 5 feet (91 cm. to 1.5 m.). The bamboo palm plant can also be planted outdoors in the USDA plant hardiness zones 10 and 11. Read more at Gardening Know How: Caring For Bamboo Palms: How To Grow A Bamboo Palm Plant https://www.gardeningknowhow.com/houseplants/bamboo-palm/grow-bamboo-palm-indoors.htm",
-        "plantType": "House Plant",
+        "plantType": "Palm",
         "plantSunlightNeeds": "Bright, indirect light.",
         "plantWaterFreq": ["3", "w"],
         "plantWaterFreqDescription": "Three times Weekly; Soak to the bottom of the pot. Make sure your pot has a hole for drainage.",
         "plantImg":"https://bloomscape.com/wp-content/uploads/2020/08/bloomscape_bamboo-palm_stone-1.jpg"
+    },
+    "englishIvy": {
+        "plantName": "English Ivy",
+        "plantDescription": "English ivy (Hedera helix) is a versatile houseplant that can be grown in many different situations. Ivies can be grown in hanging baskets, at the base of other houseplants and in pots of their own. Ivy is often trained on trellis frames or wire topiary forms into various formal or whimsical shapes.",
+        "plantType": "Ivy",
+        "plantSunlightNeeds": "Most cultivars of ivy grow best in bright light, but not direct sun. They tolerate low to medium light, but growth is reduced and variegated forms may turn all green. To maintain the bright color of a variegated ivy, give it plenty of light. Ivies can be grown with artificial light, or near a north, east or west window.",
+        "plantWaterFreq": ["1", "bw"],
+        "plantWaterFreqDescription": "Water ivies thoroughly, then let the soil dry to the touch to a depth of ½ inch before watering again. Although ivies prefer moderate humidity, they will tolerate normal low home levels. Raise the humidity by setting the plants on a tray of wet pebbles or perlite. Do not allow ivies to stand in water. Ivies benefit from good air circulation, and they should not be crowded.",
+        "plantImg":"https://bloomscape.com/wp-content/uploads/2021/12/Bloomscape_IvyGlacier_small_Detail-scaled.jpg?ver=639542"
     }
 }
