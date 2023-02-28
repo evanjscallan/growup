@@ -7,6 +7,7 @@ import type { FC, Dispatch, SetStateAction } from "react";
 import "./App.css";
 import anime from 'animejs'
 import ReactPaginate from 'react-paginate';
+import { EditModeButton } from './components/EditModeButton'
 
 
 
@@ -36,12 +37,17 @@ const App: FC = () => {
   let [plantSunlightNeeds, setPlantSunlightNeeds]: any = useState(plantInfo.plantSunlightNeeds)
   let [plantImg, setPlantImg]: any = useState(plantInfo.plantImg)
   let [startDate, setStartDate]: any = useState(null)
+  let [editMode, setEditMode]: any = useState(false)
 
   //for targeting drop down selection in DropdownOptionUI and updating based on chosen plant
   let [dropdownSelection, setDropdownSelection]: any = useState('')
 
   return (
   <div className='main'>
+  <EditModeButton
+      editMode={editMode}
+      setEditMode={setEditMode}
+  />
   <PlantDropdown
   dropdownSelection={dropdownSelection}
   setDropdownSelection={setDropdownSelection}
@@ -57,9 +63,16 @@ const App: FC = () => {
     plantUIDisplay={plantUIDisplay} 
     setPlantUIDisplay={setPlantUIDisplay}
    /> : null}
+   
+  <div className={ editMode ? 'calendar-outer-edit'  : 'calendar-outer' }>
   <CustomCalendar
+    editMode={editMode}
+    setEditMode={setEditMode}
   />
+  </div> 
+  
   </div>
+
   );
 }
 

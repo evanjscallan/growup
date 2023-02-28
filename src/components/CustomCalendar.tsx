@@ -14,19 +14,21 @@ import anime from "animejs"
 let plant = plants;
 type Plant = {
   plant: any
+  editMode: boolean,
+  setEditMode: boolean
 }
 
 
 
 
 
-export const CustomCalendar: FC = (plant: any) => {
+export const CustomCalendar: any = (editMode: any, setEditMode: any): any => {
   // const [style, setStyle] = useState("normal");
   const [activeCellDateString, setActiveCellDateString] = useState<
     string | null
   >(null);
   const dates = generateCalendar();
-
+  
   let weekDays: any = ['Sun','Mon','Tues', 'Wed', 'Thurs', 'Fri', 'Sat', ]
 
     
@@ -40,7 +42,8 @@ export const CustomCalendar: FC = (plant: any) => {
     // All properties except 'scale' inherit 250ms delay
   });
 },[1])
-
+    console.log('calendar edit Mode state:', editMode)
+  
   
 
   //targets
@@ -67,7 +70,7 @@ export const CustomCalendar: FC = (plant: any) => {
 
   return (
     <>
-      <div className='calendar-outer'>
+      <div>
         {[...dates.entries()].map(([year, months]) => (
           <div>
             <div className="yearClass">{year}</div>
