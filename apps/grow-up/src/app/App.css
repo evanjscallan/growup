@@ -88,6 +88,13 @@
     visibility: hidden;
   }
 }
+.calendar-outer{
+  background-color: white;
+}
+
+.calendar-outer-edit{
+  background-color: gray;
+}
 
 .bolded {
   font-weight: 600;
