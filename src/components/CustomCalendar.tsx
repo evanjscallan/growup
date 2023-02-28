@@ -5,6 +5,7 @@ import {
   getDateOrdinal,
   getDayOfWeek,
 } from "../utils/calendar";
+import ReactPaginate from 'react-paginate';
 import React, { useState, useEffect } from "react";
 import type { FC } from "react";
 import "./../App.css";
@@ -14,6 +15,7 @@ let plant = plants;
 type Plant = {
   plant: any
 }
+
 
 
 
@@ -32,15 +34,13 @@ export const CustomCalendar: FC = (plant: any) => {
   anime({
     targets: '.calendar-outer',
     opacity: 1,
-    duration: 1000,
+    duration: 2000,
     delay: 100,
     easing: 'easeInSine',
-   
     // All properties except 'scale' inherit 250ms delay
   });
-
-
 },[1])
+
   
 
   //targets

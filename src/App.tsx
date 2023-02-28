@@ -6,6 +6,7 @@ import React, { useState, useEffect } from 'react';
 import type { FC, Dispatch, SetStateAction } from "react";
 import "./App.css";
 import anime from 'animejs'
+import ReactPaginate from 'react-paginate';
 
 
 
@@ -34,6 +35,7 @@ const App: FC = () => {
   let [plantWaterFreqDescription, setPlantWaterFreqDescription]: any = useState(plantInfo.plantWaterFreqDescription)
   let [plantSunlightNeeds, setPlantSunlightNeeds]: any = useState(plantInfo.plantSunlightNeeds)
   let [plantImg, setPlantImg]: any = useState(plantInfo.plantImg)
+  let [startDate, setStartDate]: any = useState(null)
 
   //for targeting drop down selection in DropdownOptionUI and updating based on chosen plant
   let [dropdownSelection, setDropdownSelection]: any = useState('')
@@ -55,7 +57,8 @@ const App: FC = () => {
     plantUIDisplay={plantUIDisplay} 
     setPlantUIDisplay={setPlantUIDisplay}
    /> : null}
-  <CustomCalendar/>
+  <CustomCalendar
+  />
   </div>
   );
 }
@@ -70,4 +73,16 @@ pass in data into App.tsx
 pass to plantdropdown as props
 compare option value with plant id
 if match, display UI containing all of the data that has that id
+*/
+
+
+
+/* 
+Calendar - createDate = [false, true]
+when createDate is true:
+  -different UI for calendar to show difference
+  -able to use a startDate function
+
+
+
 */

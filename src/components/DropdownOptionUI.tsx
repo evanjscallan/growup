@@ -23,33 +23,24 @@ type Plant = {
 
 
 export const DropdownOptionUI: string | FC<OptionProps> = ({ plantUIDisplay,
-    setPlantUIDisplay, dropdownSelection, setDropdownSelection }) => {
-       
-          
-          
+    setPlantUIDisplay, dropdownSelection, setDropdownSelection }) => {   
         const hideUI = () => {
-                setPlantUIDisplay(plantUIDisplay = false)
-               
-              
-            
+            setPlantUIDisplay(plantUIDisplay = false)   
         }
         const selectedPlant = (Object.values(plants) as Plant[]).find((plant) => (
             plant.plantName === dropdownSelection  
         ))
         if (selectedPlant === undefined){
-          
             return null
         }
 
             
-     const { plantName, plantDescription,plantSunlightNeeds, plantImg, plantWaterFreqDescription } = selectedPlant
+    const { plantName, plantDescription,plantSunlightNeeds, plantImg, plantWaterFreqDescription } = selectedPlant
      
     return(
         <div className='plant-info-modal'>
         <img className='plant-modal-close-out' onClick={hideUI} src={svg} alt='X'/>
-        
         <h1>Plant Information for { plantName }</h1>
-      
         <ul>
             <li><b>Name:</b> { plantName } </li>
             <li><b>Description:</b>  { plantDescription } </li>

@@ -22,7 +22,7 @@ export const PlantDropdown: FC<PlantDropdownProps> =
     if (event.target.value === ''){
         setPlantUIDisplay(plantUIDisplay = false)
 
-        setDropdownSelection(null)
+       
     }
     else {
 
@@ -40,7 +40,7 @@ export const PlantDropdown: FC<PlantDropdownProps> =
     return(
         <>
             <label htmlFor='plant-names'>Select Plant</label>
-            <select onChange={(event: React.ChangeEvent<HTMLSelectElement>) => displayPlantInfo(event)}  name='plant-names' id='plant-names'>
+            <select className='plant-dropdown' onChange={(event: React.ChangeEvent<HTMLSelectElement>) => displayPlantInfo(event)}  name='plant-names' id='plant-names'>
                 <option value=''></option>
                 { (Object.entries(plants) as [string, Plant][]).map((plant) => (
                     <option value={plant[1].plantName}>{plant[1].plantName}</option>
