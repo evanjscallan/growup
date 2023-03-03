@@ -1,0 +1,19 @@
+{
+  "version": "0.2",
+  "language": "en",
+  "ignorePaths": [
+    "node_modules",
+    "dist",
+    "yarn-error.log",
+    "*.otf",
+    "*.svg",
+    "project.json",
+    "es.js"
+  ],
+  "words": [
+    "growup",
+    "inversify",
+    "nrwl",
+    "tsoa"
+  ]
+}

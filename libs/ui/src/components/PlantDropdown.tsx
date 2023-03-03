@@ -1,6 +1,5 @@
-import React, { useState, Dispatch, SetStateAction, FC } from "react";
-import plants from "./utils/dummyData.json";
-import anime from "animejs";
+import React, { Dispatch, SetStateAction, FC } from "react";
+import { usePlants } from "@grow-up/ui";
 
 interface PlantDropdownProps {
   plantUIDisplay: any;
@@ -20,8 +19,8 @@ export const PlantDropdown: FC<PlantDropdownProps> = ({
   dropdownSelection,
   setDropdownSelection,
 }) => {
-  const initialDropdownState = "";
-  const displayPlantInfo = (event: any): any => {
+  const { plants } = usePlants();
+  const displayPlantInfo = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setPlantUIDisplay((plantUIDisplay = true));
     if (event.target.value === "") {
       setPlantUIDisplay((plantUIDisplay = false));
@@ -42,8 +41,8 @@ export const PlantDropdown: FC<PlantDropdownProps> = ({
         id="plant-names"
       >
         <option value=""></option>
-        {(Object.entries(plants) as [string, Plant][]).map((plant) => (
-          <option value={plant[1].plantName}>{plant[1].plantName}</option>
+        {plants.map((plant) => (
+          <option value={plant.name}>{plant.name}</option>
         ))}
       </select>
     </>

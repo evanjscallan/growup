@@ -1,46 +1,24 @@
 import {
   EditModeButton,
   CustomCalendar,
-  getMockPlants,
   PlantDropdown,
   DropdownOptionUI,
+  usePlants,
 } from "@grow-up/ui";
 import { useState } from "react";
 import type { FC } from "react";
 
 import "./App.css";
 
-const App: FC = () => {
+export const App: FC = () => {
   //import from dummyData.json
   //next: find a way to map multiple plants to multiple drop-downs.
-  const plant: any = getMockPlants().persianShieldPlant;
 
-  const plantInfo = {
-    plantName: plant.plantName,
-    plantType: plant.plantType,
-    plantDescription: plant.plantDescription,
-    plantWaterFreq: plant.plantWaterFreq,
-    plantWaterFreqDescription: plant.plantWaterFreqDescription,
-    plantSunlightNeeds: plant.plantSunlightNeeds,
-    plantImg: plant.plantImg,
-  };
-
-  const [plantUIDisplay, setPlantUIDisplay]: any = useState(false);
-  const [plantName, setPlantName]: any = useState(plantInfo.plantName);
-  const [plantDescription, setPlantDescription]: any = useState(
-    plantInfo.plantDescription
-  );
-  const [plantWaterFreqDescription, setPlantWaterFreqDescription]: any =
-    useState(plantInfo.plantWaterFreqDescription);
-  const [plantSunlightNeeds, setPlantSunlightNeeds]: any = useState(
-    plantInfo.plantSunlightNeeds
-  );
-  const [plantImg, setPlantImg]: any = useState(plantInfo.plantImg);
-  const [startDate, setStartDate]: any = useState(null);
-  const [editMode, setEditMode]: any = useState(false);
+  const [plantUIDisplay, setPlantUIDisplay] = useState(false);
+  const [editMode, setEditMode] = useState(false);
 
   //for targeting drop down selection in DropdownOptionUI and updating based on chosen plant
-  const [dropdownSelection, setDropdownSelection]: any = useState("");
+  const [dropdownSelection, setDropdownSelection] = useState("");
 
   return (
     <div className="main">
@@ -52,22 +30,20 @@ const App: FC = () => {
         setPlantUIDisplay={setPlantUIDisplay}
       />
 
-      {plantUIDisplay ? (
+      {plantUIDisplay && (
         <DropdownOptionUI
           dropdownSelection={dropdownSelection}
           setDropdownSelection={setDropdownSelection}
           plantUIDisplay={plantUIDisplay}
           setPlantUIDisplay={setPlantUIDisplay}
         />
-      ) : null}
+      )}
       <div className={editMode ? "calendar-outer-edit" : "calendar-outer"}>
         <CustomCalendar editMode={editMode} setEditMode={setEditMode} />
       </div>
     </div>
   );
 };
-
-export default App;
 
 /* Additional Notes:
 --Prospective Process--

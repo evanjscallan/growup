@@ -1,26 +1,23 @@
-import {
-  generateCalendar,
-  getCalendarOffset,
-  getDate,
-} from "./utils/calendar";
-import { useState, useEffect } from "react";
-import type { FC } from "react";
+import { useState, useEffect, Dispatch, SetStateAction, FC } from "react";
 import anime from "animejs";
 
-type Plant = {
-  plant: any
-  editMode: boolean,
-  setEditMode: boolean
+import { generateCalendar, getCalendarOffset, getDate, weekDays } from "@grow-up/ui";
+import { DayOfWeek } from "@grow-up/types";
+
+interface CustomCalendarProps {
+  editMode: boolean;
+  setEditMode: Dispatch<SetStateAction<boolean>>;
 }
 
-export const CustomCalendar: any = (editMode: any, setEditMode: any): any => {
-  // const [style, setStyle] = useState("normal");
+export const CustomCalendar: FC<CustomCalendarProps> = ({
+  editMode,
+  setEditMode,
+}) => {
   const [activeCellDateString, setActiveCellDateString] = useState<
     string | null
   >(null);
-  const dates = generateCalendar();
 
-  const weekDays: any = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"];
+  const dates = generateCalendar();
 
   useEffect(() => {
     anime({
@@ -33,7 +30,7 @@ export const CustomCalendar: any = (editMode: any, setEditMode: any): any => {
     });
   }, [1]);
 
-  console.log('calendar edit Mode state:', editMode)
+  console.log("calendar edit Mode state:", editMode);
 
   //targets
   const toggleActiveCell = (date: Date) => {
@@ -47,7 +44,7 @@ export const CustomCalendar: any = (editMode: any, setEditMode: any): any => {
     }
   };
 
-  const logCell = (date: any, dateString: string): void => {
+  const logCell = (date: any, dateString: string) => {
     if (date.toISOString() === dateString) {
       console.log("clicked", date.toISOString());
     } else {
@@ -68,7 +65,7 @@ export const CustomCalendar: any = (editMode: any, setEditMode: any): any => {
                 <div>{month}</div>
                 <div className="monthy">
                   <div className="griddy">
-                    {weekDays.map((weekday: JSX.Element) => {
+                    {weekDays.map((weekday: DayOfWeek) => {
                       return (
                         <div className="weekday">
                           <p>{weekday}</p>

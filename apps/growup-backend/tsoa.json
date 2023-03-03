@@ -1,0 +1,19 @@
+{
+  "entryFile": "src/main.ts",
+  "noImplicitAdditionalProperties": "throw-on-extras",
+  "controllerPathGlobs": ["src/controllers/*.ts"],
+  "spec": {
+    "outputDirectory": "src/generated",
+    "specVersion": 3
+  },
+  "routes": {
+    "routesDir": "src/generated",
+    "iocModule": "src/ioc/ioc.ts"
+  },
+  "compilerOptions": {
+    "baseUrl": "../../",
+    "paths": {
+      "@grow-up/types": ["libs/types/src/index.ts"]
+    }
+  }
+}
