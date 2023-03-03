@@ -78,5 +78,6 @@
         "unitTestRunner": "jest"
       }
     }
-  }
+  },
+  "defaultProject": "grow-up"
 }
