@@ -1,17 +1,26 @@
 import { useState, useEffect, Dispatch, SetStateAction, FC } from "react";
 import anime from "animejs";
 
-import { generateCalendar, getCalendarOffset, getDate, weekDays } from "@grow-up/ui";
+import {
+  generateCalendar,
+  getCalendarOffset,
+  getDate,
+  weekDays,
+} from "@grow-up/ui";
 import { DayOfWeek } from "@grow-up/types";
 
 interface CustomCalendarProps {
   editMode: boolean;
   setEditMode: Dispatch<SetStateAction<boolean>>;
+  datesArr: any;
+  setDatesArr: any;
 }
 
 export const CustomCalendar: FC<CustomCalendarProps> = ({
   editMode,
   setEditMode,
+  datesArr,
+  setDatesArr,
 }) => {
   const [activeCellDateString, setActiveCellDateString] = useState<
     string | null
@@ -37,7 +46,10 @@ export const CustomCalendar: FC<CustomCalendarProps> = ({
     const dateString = date.toISOString();
 
     if (activeCellDateString === dateString) {
-      setActiveCellDateString(null);
+      if (editMode) {
+        datesArr.push(activeCellDateString);
+        console.log(datesArr);
+      }
     } else {
       setActiveCellDateString(dateString);
       logCell(date, dateString);
@@ -87,7 +99,7 @@ export const CustomCalendar: FC<CustomCalendarProps> = ({
                           key={day.toISOString()}
                           onClick={() => toggleActiveCell(day)}
                           className={`cellBlock ${
-                            activeCellDateString === day.toISOString()
+                            datesArr.includes(day.toISOString())
                               ? "active"
                               : "inactive"
                           }`}
