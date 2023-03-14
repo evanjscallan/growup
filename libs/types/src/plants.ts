@@ -10,4 +10,5 @@ export interface IPlant {
   wateringFrequency: string;
   wateringDescription: string;
   imageUri: string;
+  wateringDates: string[]
 }

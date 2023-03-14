@@ -29,4 +29,17 @@ export class PlantsRepository {
   public async clear(): Promise<mongoose.mongo.DeleteResult> {
     return this.getCollection().deleteOne();
   }
+
+  public async update(
+    plantId: string,
+    plant: Omit<IPlant, "_id">
+  ): Promise<IPlant> {
+    return (
+      await this.getCollection().findOneAndUpdate(
+        { id: plantId },
+        { $set: plant },
+        { upsert: true, returnDocument: "after" }
+      )
+    ).value;
+  }
 }

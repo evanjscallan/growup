@@ -42,6 +42,12 @@
 					},
 					"imageUri": {
 						"type": "string"
+					},
+					"wateringDates": {
+						"items": {
+							"type": "string"
+						},
+						"type": "array"
 					}
 				},
 				"required": [
@@ -53,7 +59,8 @@
 					"sunlight",
 					"wateringFrequency",
 					"wateringDescription",
-					"imageUri"
+					"imageUri",
+					"wateringDates"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -95,6 +102,57 @@
 				],
 				"type": "object",
 				"additionalProperties": false
+			},
+			"Pick_IPlant.Exclude_keyofIPlant._id__": {
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"name": {
+						"type": "string"
+					},
+					"description": {
+						"type": "string"
+					},
+					"type": {
+						"type": "string"
+					},
+					"sunlight": {
+						"type": "string"
+					},
+					"wateringFrequency": {
+						"type": "string"
+					},
+					"wateringDescription": {
+						"type": "string"
+					},
+					"imageUri": {
+						"type": "string"
+					},
+					"wateringDates": {
+						"items": {
+							"type": "string"
+						},
+						"type": "array"
+					}
+				},
+				"required": [
+					"id",
+					"name",
+					"description",
+					"type",
+					"sunlight",
+					"wateringFrequency",
+					"wateringDescription",
+					"imageUri",
+					"wateringDates"
+				],
+				"type": "object",
+				"description": "From T, pick a set of properties whose keys are in the union K"
+			},
+			"Omit_IPlant._id_": {
+				"$ref": "#/components/schemas/Pick_IPlant.Exclude_keyofIPlant._id__",
+				"description": "Construct a type with the properties of T except for those in type K."
 			}
 		},
 		"securitySchemes": {}
@@ -161,6 +219,65 @@
 						}
 					}
 				]
+			},
+			"put": {
+				"operationId": "UpdatePlant",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/IPlant"
+								}
+							}
+						}
+					},
+					"401": {
+						"description": "Request not authorized.",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/UnauthorizedError"
+								}
+							}
+						}
+					},
+					"404": {
+						"description": "Record not found.",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/NotFoundError"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Plants"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "plantId",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/Omit_IPlant._id_"
+							}
+						}
+					}
+				}
 			}
 		},
 		"/api/v1/plants": {

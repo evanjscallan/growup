@@ -37,7 +37,11 @@ export class AppHelper {
         res.json(swaggerDocument)
       );
 
-      const allowedOrigins = ["http://localhost:4200", undefined];
+      const allowedOrigins = [
+        "http://localhost:4201",
+        "http://localhost:4202",
+        undefined,
+      ];
 
       this.app.use(
         cors({

@@ -9,6 +9,7 @@ import type { IPlant } from "@grow-up/types";
 export interface IPlantsService {
   getPlant(plantId: string): Promise<IPlant>;
   getAllPlants(): Promise<Array<IPlant>>;
+  updatePlant(plantId: string, plant: IPlant): Promise<IPlant | null>;
 }
 
 @ProvideSingleton(PlantsService)
@@ -30,5 +31,9 @@ export class PlantsService implements IPlantsService {
 
   getAllPlants(): Promise<Array<IPlant>> {
     return this.plantsRepository.getAll();
+  }
+
+  updatePlant(plantId: string, plant: Omit<IPlant, '_id'>): Promise<IPlant | null> {
+    return this.plantsRepository.update(plantId, plant)
   }
 }

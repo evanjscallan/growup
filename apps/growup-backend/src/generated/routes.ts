@@ -23,6 +23,7 @@ const models: TsoaRoute.Models = {
             "wateringFrequency": {"dataType":"string","required":true},
             "wateringDescription": {"dataType":"string","required":true},
             "imageUri": {"dataType":"string","required":true},
+            "wateringDates": {"dataType":"array","array":{"dataType":"string"},"required":true},
         },
         "additionalProperties": false,
     },
@@ -45,6 +46,16 @@ const models: TsoaRoute.Models = {
             "stack": {"dataType":"string"},
         },
         "additionalProperties": false,
+    },
+    // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+    "Pick_IPlant.Exclude_keyofIPlant._id__": {
+        "dataType": "refAlias",
+        "type": {"dataType":"nestedObjectLiteral","nestedProperties":{"id":{"dataType":"string","required":true},"name":{"dataType":"string","required":true},"description":{"dataType":"string","required":true},"type":{"dataType":"string","required":true},"sunlight":{"dataType":"string","required":true},"wateringFrequency":{"dataType":"string","required":true},"wateringDescription":{"dataType":"string","required":true},"imageUri":{"dataType":"string","required":true},"wateringDates":{"dataType":"array","array":{"dataType":"string"},"required":true}},"validators":{}},
+    },
+    // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+    "Omit_IPlant._id_": {
+        "dataType": "refAlias",
+        "type": {"ref":"Pick_IPlant.Exclude_keyofIPlant._id__","validators":{}},
     },
     // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
 };
@@ -110,6 +121,37 @@ export function RegisterRoutes(app: Router) {
 
 
               const promise = controller.getAllPlants.apply(controller, validatedArgs as any);
+              promiseHandler(controller, promise, response, undefined, next);
+            } catch (err) {
+                return next(err);
+            }
+        });
+        // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+        app.put('/api/v1/plants/:plantId',
+            ...(fetchMiddlewares<RequestHandler>(PlantsController)),
+            ...(fetchMiddlewares<RequestHandler>(PlantsController.prototype.updatePlant)),
+
+            async function PlantsController_updatePlant(request: any, response: any, next: any) {
+            const args = {
+                    plantId: {"in":"path","name":"plantId","required":true,"dataType":"string"},
+                    plant: {"in":"body","name":"plant","required":true,"ref":"Omit_IPlant._id_"},
+            };
+
+            // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+
+            let validatedArgs: any[] = [];
+            try {
+                validatedArgs = getValidatedArgs(args, request, response);
+
+                const container: IocContainer = typeof iocContainer === 'function' ? (iocContainer as IocContainerFactory)(request) : iocContainer;
+
+                const controller: any = await container.get<PlantsController>(PlantsController);
+                if (typeof controller['setStatus'] === 'function') {
+                controller.setStatus(undefined);
+                }
+
+
+              const promise = controller.updatePlant.apply(controller, validatedArgs as any);
               promiseHandler(controller, promise, response, undefined, next);
             } catch (err) {
                 return next(err);

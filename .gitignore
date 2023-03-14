@@ -4,4 +4,5 @@ node_modules/
 /playwright-report/
 /playwright/.cache/
 .env
-logs/*
+logs/**/*
+dist/**/*
