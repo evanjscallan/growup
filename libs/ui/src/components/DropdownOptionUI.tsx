@@ -22,7 +22,7 @@ export const DropdownOptionUI: FC<DropdownOptionUIProps> = ({
   const selectedPlant = plants.find(
     (plant) => plant.name === dropdownSelection
   );
-  
+
   if (selectedPlant === undefined) {
     return null;
   }
