@@ -47,15 +47,14 @@ export const CustomCalendar: FC<CustomCalendarProps> = ({
 
     if (activeCellDateString && dateString) {
       if (editMode) {
-        datesArr.push(activeCellDateString);
-        logCell(date, dateString);
+        datesArr.push(date.toDateString());
+        setActiveCellDateString(dateString);
         console.log(datesArr);
       } else {
         return;
       }
     } else {
       setActiveCellDateString(dateString);
-      logCell(date, dateString);
     }
   };
 
@@ -99,10 +98,10 @@ export const CustomCalendar: FC<CustomCalendarProps> = ({
                       const date = getDate(day);
                       return (
                         <div
-                          key={day.toISOString()}
+                          key={date}
                           onClick={() => toggleActiveCell(day)}
                           className={`cellBlock ${
-                            datesArr.includes(day.toISOString())
+                            datesArr.includes(day.toDateString())
                               ? "active"
                               : "inactive"
                           }`}
