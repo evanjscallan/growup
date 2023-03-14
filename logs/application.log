@@ -1152,3 +1152,18 @@
 {"level":"info","message":"Listening at http://localhost:4201/api","service":"user-service","timestamp":"2023-03-03T21:06:50.368Z"}
 {"level":"info","message":"Connection to database","service":"user-service","timestamp":"2023-03-03T21:06:50.369Z"}
 {"level":"info","message":"Connection successful","service":"user-service","timestamp":"2023-03-03T21:06:50.373Z"}
+{"level":"info","message":"Listening at http://localhost:4201/api","service":"user-service","timestamp":"2023-03-07T20:49:47.072Z"}
+{"level":"info","message":"Connection to database","service":"user-service","timestamp":"2023-03-07T20:49:47.073Z"}
+{"level":"info","message":"Connection successful","service":"user-service","timestamp":"2023-03-07T20:49:47.076Z"}
+{"level":"info","message":"Listening at http://localhost:4201/api","service":"user-service","timestamp":"2023-03-13T00:19:29.826Z"}
+{"level":"info","message":"Connection to database","service":"user-service","timestamp":"2023-03-13T00:19:29.827Z"}
+{"level":"info","message":"Connection successful","service":"user-service","timestamp":"2023-03-13T00:19:29.830Z"}
+{"level":"info","message":"Listening at http://localhost:4201/api","service":"user-service","timestamp":"2023-03-13T00:21:13.651Z"}
+{"level":"info","message":"Connection to database","service":"user-service","timestamp":"2023-03-13T00:21:13.652Z"}
+{"level":"info","message":"Connection successful","service":"user-service","timestamp":"2023-03-13T00:21:13.655Z"}
+{"level":"info","message":"Listening at http://localhost:4201/api","service":"user-service","timestamp":"2023-03-14T16:40:04.725Z"}
+{"level":"info","message":"Connection to database","service":"user-service","timestamp":"2023-03-14T16:40:04.726Z"}
+{"level":"info","message":"Connection successful","service":"user-service","timestamp":"2023-03-14T16:40:04.730Z"}
+{"level":"info","message":"Listening at http://localhost:4201/api","service":"user-service","timestamp":"2023-03-14T16:40:33.473Z"}
+{"level":"info","message":"Connection to database","service":"user-service","timestamp":"2023-03-14T16:40:33.474Z"}
+{"level":"info","message":"Connection successful","service":"user-service","timestamp":"2023-03-14T16:40:33.477Z"}

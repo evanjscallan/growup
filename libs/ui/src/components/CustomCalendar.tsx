@@ -45,10 +45,13 @@ export const CustomCalendar: FC<CustomCalendarProps> = ({
   const toggleActiveCell = (date: Date) => {
     const dateString = date.toISOString();
 
-    if (activeCellDateString === dateString) {
+    if (activeCellDateString && dateString) {
       if (editMode) {
         datesArr.push(activeCellDateString);
+        logCell(date, dateString);
         console.log(datesArr);
+      } else {
+        return;
       }
     } else {
       setActiveCellDateString(dateString);
