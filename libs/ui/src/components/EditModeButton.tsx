@@ -5,5 +5,5 @@ export const EditModeButton = (props: any) => {
     props.setEditMode(!props.editMode);
     console.log(props.editMode);
   };
-  return <button onClick={() => toggleEditMode()}>Click to Edit</button>;
+  return <button onClick={() => toggleEditMode()}>Edit Watering Dates</button>;
 };

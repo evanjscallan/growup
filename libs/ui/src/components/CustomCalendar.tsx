@@ -59,24 +59,18 @@ export const CustomCalendar: FC<CustomCalendarProps> = ({
   };
 
   const changeColor = (datesArr: any, day: any, e: any) => {
-    anime({
-      targets: day,
-      backgroundColor: [
-        { value: "#FFF" }, // Or #FFFFFF
-        { value: "rgb(255, 0, 0)" },
-        { value: "hsl(100, 60%, 60%)" },
-      ],
-      easing: "linear",
-      direction: "alternate",
-      duration: 200,
-    });
-  };
-
-  const logCell = (date: any, dateString: string) => {
-    if (date.toISOString() === dateString) {
-      console.log("clicked", date.toISOString());
-    } else {
-      console.log("no match");
+    if (e.target.className === "cellBlock active") {
+      anime({
+        targets: ".cellBlockactive",
+        backgroundColor: [
+          { value: "#FFF" }, // Or #FFFFFF
+          { value: "rgb(255, 0, 0)" },
+          { value: "hsl(100, 60%, 60%)" },
+        ],
+        easing: "linear",
+        direction: "alternate",
+        duration: 200,
+      });
     }
   };
 

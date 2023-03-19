@@ -3,7 +3,6 @@ import {
   CustomCalendar,
   PlantDropdown,
   DropdownOptionUI,
-  usePlants,
 } from "@grow-up/ui";
 import { ClearButton } from "libs/ui/src/components/ClearButton";
 import { useState } from "react";
@@ -26,7 +25,7 @@ export const App: FC = () => {
     <>
       <div className={editMode ? "calendar-outer-edit" : "calendar-outer"}>
         <div className="properties-outer">
-          <h2>Plant Database</h2>
+          <h2>Select a Plant</h2>
           <PlantDropdown
             dropdownSelection={dropdownSelection}
             setDropdownSelection={setDropdownSelection}
@@ -34,16 +33,17 @@ export const App: FC = () => {
             setPlantUIDisplay={setPlantUIDisplay}
           />
 
-          <h2>Calendar Properties</h2>
           <div className="edit-properties">
-            <EditModeButton editMode={editMode} setEditMode={setEditMode} />
-            <ClearButton datesArr={datesArr} setDatesArr={setDatesArr} />
             {plantUIDisplay && (
               <DropdownOptionUI
                 dropdownSelection={dropdownSelection}
                 setDropdownSelection={setDropdownSelection}
                 plantUIDisplay={plantUIDisplay}
                 setPlantUIDisplay={setPlantUIDisplay}
+                editMode={editMode}
+                setEditMode={setEditMode}
+                datesArr={datesArr}
+                setDatesArr={setDatesArr}
               />
             )}
           </div>

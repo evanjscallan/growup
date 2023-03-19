@@ -1,22 +1,32 @@
 import { FC, Dispatch, SetStateAction } from "react";
 import { usePlants } from "../hooks/usePlants";
-
+import { EditModeButton } from "./EditModeButton";
+import { ClearButton } from "./ClearButton";
 interface DropdownOptionUIProps {
   plantUIDisplay: boolean;
   setPlantUIDisplay: Dispatch<SetStateAction<boolean>>;
   dropdownSelection: string;
   setDropdownSelection: Dispatch<SetStateAction<string>>;
+  editMode: boolean;
+  setEditMode: any;
+  datesArr: string[];
+  setDatesArr: Dispatch<SetStateAction<string[]>>;
 }
 
 export const DropdownOptionUI: FC<DropdownOptionUIProps> = ({
   plantUIDisplay,
   setPlantUIDisplay,
   dropdownSelection,
+  editMode,
+  setEditMode,
+  datesArr,
+  setDatesArr,
 }) => {
   const { plants } = usePlants();
 
   const hideUI = () => {
     setPlantUIDisplay((plantUIDisplay = false));
+    setEditMode(false);
   };
 
   const selectedPlant = plants.find(
@@ -55,6 +65,8 @@ export const DropdownOptionUI: FC<DropdownOptionUIProps> = ({
         <div>
           <img className="plant-image" src={imageUri} alt={name} width="300" />
         </div>
+        <EditModeButton editMode={editMode} setEditMode={setEditMode} />
+        <ClearButton datesArr={datesArr} setDatesArr={setDatesArr} />
       </ul>
     </div>
   );

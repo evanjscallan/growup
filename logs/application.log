@@ -1182,3 +1182,6 @@
 {"level":"info","message":"Listening at http://localhost:4201/api","service":"user-service","timestamp":"2023-03-19T16:52:08.317Z"}
 {"level":"info","message":"Connection to database","service":"user-service","timestamp":"2023-03-19T16:52:08.318Z"}
 {"level":"info","message":"Connection successful","service":"user-service","timestamp":"2023-03-19T16:52:08.321Z"}
+{"level":"info","message":"Listening at http://localhost:4201/api","service":"user-service","timestamp":"2023-03-19T18:09:34.070Z"}
+{"level":"info","message":"Connection to database","service":"user-service","timestamp":"2023-03-19T18:09:34.071Z"}
+{"level":"info","message":"Connection successful","service":"user-service","timestamp":"2023-03-19T18:09:34.074Z"}
