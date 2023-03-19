@@ -38,7 +38,7 @@ export const DropdownOptionUI: FC<DropdownOptionUIProps> = ({
         src={"./assets/close-circle.svg"}
         alt="X"
       />
-      <h1>Plant Information for {name}</h1>
+      <h2>Plant Information for {name}</h2>
       <ul>
         <li>
           <b>Name:</b> {name}

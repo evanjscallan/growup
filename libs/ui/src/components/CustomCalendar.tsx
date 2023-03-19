@@ -58,6 +58,20 @@ export const CustomCalendar: FC<CustomCalendarProps> = ({
     }
   };
 
+  const changeColor = (datesArr: any, day: any, e: any) => {
+    anime({
+      targets: day,
+      backgroundColor: [
+        { value: "#FFF" }, // Or #FFFFFF
+        { value: "rgb(255, 0, 0)" },
+        { value: "hsl(100, 60%, 60%)" },
+      ],
+      easing: "linear",
+      direction: "alternate",
+      duration: 200,
+    });
+  };
+
   const logCell = (date: any, dateString: string) => {
     if (date.toISOString() === dateString) {
       console.log("clicked", date.toISOString());
@@ -67,16 +81,17 @@ export const CustomCalendar: FC<CustomCalendarProps> = ({
   };
 
   return (
-    <div>
+    <div className="cal">
       {[...dates.entries()].map(([year, months]) => (
         <div>
-          <div className="yearClass">{year}</div>
           <div>
             <div className="table-header"></div>
 
             {[...months.entries()].map(([month, days]) => (
               <div className="monthClass" key={month}>
-                <div>{month}</div>
+                <div>
+                  {month} {year}
+                </div>
                 <div className="monthy">
                   <div className="griddy">
                     {weekDays.map((weekday: DayOfWeek) => {
@@ -98,6 +113,7 @@ export const CustomCalendar: FC<CustomCalendarProps> = ({
                       const date = getDate(day);
                       return (
                         <div
+                          onMouseEnter={(e) => changeColor(datesArr, day, e)}
                           key={date}
                           onClick={() => toggleActiveCell(day)}
                           className={`cellBlock ${

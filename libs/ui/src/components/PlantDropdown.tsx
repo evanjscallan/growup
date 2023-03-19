@@ -31,20 +31,25 @@ export const PlantDropdown: FC<PlantDropdownProps> = ({
 
   return (
     <>
-      <label htmlFor="plant-names">Select Plant</label>
-      <select
-        className="plant-dropdown"
-        onChange={(event: React.ChangeEvent<HTMLSelectElement>) =>
-          displayPlantInfo(event)
-        }
-        name="plant-names"
-        id="plant-names"
-      >
-        <option value=""></option>
-        {plants.map((plant) => (
-          <option value={plant.name}>{plant.name}</option>
-        ))}
-      </select>
+      <div className="plant-info-properties">
+        <label htmlFor="plant-names"></label>
+        <select
+          value="select plant..."
+          className="plant-dropdown"
+          id="dropdown2"
+          onChange={(event: React.ChangeEvent<HTMLSelectElement>) =>
+            displayPlantInfo(event)
+          }
+          name="plant-names"
+        >
+          <option></option>
+          {plants.map((plant) => (
+            <option value={plant.name}>
+              {plant.name ? plant.name : "select"}
+            </option>
+          ))}
+        </select>
+      </div>
     </>
   );
 };

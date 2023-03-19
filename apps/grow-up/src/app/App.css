@@ -1,9 +1,97 @@
-.App {
-  text-align: center;
-}
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Open+Sans&family=Poiret+One&display=swap');
 
 .calendar-outer {
+  font-family:'Lato';
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
   opacity: 0;
+  background-color: #f3e9d2;
+}
+
+.plant-names {background-color: #89c7e6e4;}
+
+h1 {
+  font-family: 'Poiret One', cursive;
+  font-size: 7rem;
+  font-weight: 300;
+}
+
+
+
+.cal{
+  font-family: 'Lato';
+}
+
+select option{
+  background-color: #89c7e6e4;
+  height: 200px;
+}
+
+button{
+  background-color: #89c7e6e4;
+  border-radius: 5px;
+  box-shadow: 1px 1px 3px 1px rgba(0,0,0,0.6);
+  margin: 1rem;
+  height: 3rem;
+  border: none;
+  width: 6rem;
+}
+
+.flex-row{
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+#plant-icon{
+  height: 8rem;
+}
+select{
+  height: 2rem;
+  border-radius: 5px;
+  font-weight: bold;
+
+}
+.properties-outer{
+  
+  font-family: 'Lato', sans-serif;
+  position: fixed;
+  text-align: center;
+  background-color: #c6dabf;
+  box-shadow: 1px 1px 3px 1px rgba(0,0,0,0.6);
+  width: 25%;
+  height: 30%;
+  display: flex;
+  padding:1rem;
+  left: 3rem;
+  top: 1rem;
+  flex-direction: column;
+  justify-content: space-around;
+  
+}
+
+
+
+.plant-info-properties{
+  font-family: 'Lato', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  flex-direction: column;
+}
+
+.edit-properties{
+  font-family: 'Lato', sans-serif;
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  height: 100%;
 }
 
 .griddy {
@@ -19,7 +107,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  
+  
 }
+
+
 
 .placeholder:hover {
   cursor: default;
@@ -49,21 +141,31 @@
 }
 
 .yearClass {
-  width: 100%;
-  text-align: center;
-  font-size: 60px;
+  background-color:#c6dabf;
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
+  font-family: 'Lato';
+  border-radius: 5px;
+  font-size: 4rem;
   margin-bottom: 1em;
+  text-align: center;
+  font-weight: 400;
+  
+  
 }
 
 .monthClass {
+  font-family: 'Lato';
+  margin-bottom: 2rem;
+  background-color: white;
+  width: 60vw;
   border-radius: 5px;
   box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2),
-    2px 2px 2px 2px rgba(0, 0, 0, 0.2), 3px 3px 3px 3px rgba(0, 0, 0, 0.2),
-    4px 4px 4px 4px rgba(0, 0, 0, 0.2);
+    2px 2px 2px 2px rgba(0, 0, 0, 0.2);
   padding: 10px;
-  margin: 4rem;
   text-align: center;
   font-size: 3rem;
+  justify-self: center;
+  align-self: center;
 }
 
 .monthClass .weekday {
@@ -87,9 +189,6 @@
     opacity: 0;
     visibility: hidden;
   }
-}
-.calendar-outer{
-  background-color: white;
 }
 
 .calendar-outer-edit{
@@ -131,17 +230,17 @@
   overflow-x: none;
   font-family: "open sans";
   position: fixed;
-  background-color: rgb(71, 98, 71);
+  background-color: #114b5f;
   color: white;
   aspect-ratio: 4/3;
-  padding-top: 170px;
+  padding-top: 370px;
   padding-right: 100px;
   padding-left: 100px;
-  height: 700px;
-  margin: 1rem;
-  width: 50%;
+  height: 500px;
+  margin: 2rem;
+  width: 30%;
+  left: 1rem;
   opacity: 100%;
-  border-radius: 5px;
   box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.3),
     2px 2px 2px 2px rgba(0, 0, 0, 0.3);
 }
@@ -154,9 +253,9 @@
 }
 
 .plant-modal-close-out {
-  right: 20px;
-  position: absolute;
-  top: 1rem;
+  right: 58%;
+  position: fixed;
+  top:  70px;
   cursor: pointer;
   height: 50px;
   color: white;
@@ -190,9 +289,7 @@
   }
 }
 
-.calendar-outer {
-  background-color: white;
-}
+
 
 .calendar-outer-edit {
   background-color: gray;

@@ -23,24 +23,35 @@ export const App: FC = () => {
   const [dropdownSelection, setDropdownSelection] = useState("");
 
   return (
-    <div className="main">
-      <EditModeButton editMode={editMode} setEditMode={setEditMode} />
-      <PlantDropdown
-        dropdownSelection={dropdownSelection}
-        setDropdownSelection={setDropdownSelection}
-        plantUIDisplay={plantUIDisplay}
-        setPlantUIDisplay={setPlantUIDisplay}
-      />
-      <ClearButton datesArr={datesArr} setDatesArr={setDatesArr} />
-      {plantUIDisplay && (
-        <DropdownOptionUI
-          dropdownSelection={dropdownSelection}
-          setDropdownSelection={setDropdownSelection}
-          plantUIDisplay={plantUIDisplay}
-          setPlantUIDisplay={setPlantUIDisplay}
-        />
-      )}
+    <>
       <div className={editMode ? "calendar-outer-edit" : "calendar-outer"}>
+        <div className="properties-outer">
+          <h2>Plant Database</h2>
+          <PlantDropdown
+            dropdownSelection={dropdownSelection}
+            setDropdownSelection={setDropdownSelection}
+            plantUIDisplay={plantUIDisplay}
+            setPlantUIDisplay={setPlantUIDisplay}
+          />
+
+          <h2>Calendar Properties</h2>
+          <div className="edit-properties">
+            <EditModeButton editMode={editMode} setEditMode={setEditMode} />
+            <ClearButton datesArr={datesArr} setDatesArr={setDatesArr} />
+            {plantUIDisplay && (
+              <DropdownOptionUI
+                dropdownSelection={dropdownSelection}
+                setDropdownSelection={setDropdownSelection}
+                plantUIDisplay={plantUIDisplay}
+                setPlantUIDisplay={setPlantUIDisplay}
+              />
+            )}
+          </div>
+        </div>
+        <div className="flex-row">
+          <h1>GrowUp</h1>{" "}
+          <img id="plant-icon" alt="plant" src="./../plant-icon.svg"></img>
+        </div>
         <CustomCalendar
           editMode={editMode}
           setEditMode={setEditMode}
@@ -48,7 +59,7 @@ export const App: FC = () => {
           setDatesArr={setDatesArr}
         />
       </div>
-    </div>
+    </>
   );
 };
 

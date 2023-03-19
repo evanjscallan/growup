@@ -1170,3 +1170,15 @@
 {"level":"info","message":"Listening at http://localhost:4201/api","service":"user-service","timestamp":"2023-03-14T18:20:17.158Z"}
 {"level":"info","message":"Connection to database","service":"user-service","timestamp":"2023-03-14T18:20:17.159Z"}
 {"level":"info","message":"Connection successful","service":"user-service","timestamp":"2023-03-14T18:20:17.162Z"}
+{"level":"info","message":"Listening at http://localhost:4201/api","service":"user-service","timestamp":"2023-03-17T17:15:09.671Z"}
+{"level":"info","message":"Connection to database","service":"user-service","timestamp":"2023-03-17T17:15:09.672Z"}
+{"level":"info","message":"Connection successful","service":"user-service","timestamp":"2023-03-17T17:15:09.675Z"}
+{"level":"info","message":"Listening at http://localhost:4201/api","service":"user-service","timestamp":"2023-03-19T16:16:08.132Z"}
+{"level":"info","message":"Connection to database","service":"user-service","timestamp":"2023-03-19T16:16:08.133Z"}
+{"level":"info","message":"Connection successful","service":"user-service","timestamp":"2023-03-19T16:16:08.136Z"}
+{"level":"info","message":"Listening at http://localhost:4201/api","service":"user-service","timestamp":"2023-03-19T16:49:18.392Z"}
+{"level":"info","message":"Connection to database","service":"user-service","timestamp":"2023-03-19T16:49:18.393Z"}
+{"level":"info","message":"Connection successful","service":"user-service","timestamp":"2023-03-19T16:49:18.397Z"}
+{"level":"info","message":"Listening at http://localhost:4201/api","service":"user-service","timestamp":"2023-03-19T16:52:08.317Z"}
+{"level":"info","message":"Connection to database","service":"user-service","timestamp":"2023-03-19T16:52:08.318Z"}
+{"level":"info","message":"Connection successful","service":"user-service","timestamp":"2023-03-19T16:52:08.321Z"}

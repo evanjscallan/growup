@@ -7,7 +7,7 @@
 
 
 var PlantsController_1;
-var _a, _b, _c, _d;
+var _a, _b, _c, _d, _e, _f;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.PlantsController = void 0;
 const tslib_1 = __webpack_require__("tslib");
@@ -25,6 +25,9 @@ let PlantsController = PlantsController_1 = class PlantsController extends tsoa_
     }
     getAllPlants() {
         return this.plantsService.getAllPlants();
+    }
+    updatePlant(plantId, plant) {
+        return this.plantsService.updatePlant(plantId, plant);
     }
 };
 tslib_1.__decorate([
@@ -51,6 +54,16 @@ tslib_1.__decorate([
     tslib_1.__metadata("design:paramtypes", []),
     tslib_1.__metadata("design:returntype", typeof (_d = typeof Promise !== "undefined" && Promise) === "function" ? _d : Object)
 ], PlantsController.prototype, "getAllPlants", null);
+tslib_1.__decorate([
+    (0, tsoa_1.Put)("/:plantId"),
+    (0, tsoa_1.Response)(404, "Record not found."),
+    (0, tsoa_1.Response)(401, "Request not authorized."),
+    tslib_1.__param(0, (0, tsoa_1.Path)()),
+    tslib_1.__param(1, (0, tsoa_1.Body)()),
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [String, typeof (_e = typeof Omit !== "undefined" && Omit) === "function" ? _e : Object]),
+    tslib_1.__metadata("design:returntype", typeof (_f = typeof Promise !== "undefined" && Promise) === "function" ? _f : Object)
+], PlantsController.prototype, "updatePlant", null);
 PlantsController = PlantsController_1 = tslib_1.__decorate([
     (0, tsoa_1.Route)("/api/v1/plants"),
     (0, tsoa_1.Tags)("Plants"),
@@ -170,6 +183,7 @@ const models = {
             "wateringFrequency": { "dataType": "string", "required": true },
             "wateringDescription": { "dataType": "string", "required": true },
             "imageUri": { "dataType": "string", "required": true },
+            "wateringDates": { "dataType": "array", "array": { "dataType": "string" }, "required": true },
         },
         "additionalProperties": false,
     },
@@ -192,6 +206,16 @@ const models = {
             "stack": { "dataType": "string" },
         },
         "additionalProperties": false,
+    },
+    // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+    "Pick_IPlant.Exclude_keyofIPlant._id__": {
+        "dataType": "refAlias",
+        "type": { "dataType": "nestedObjectLiteral", "nestedProperties": { "id": { "dataType": "string", "required": true }, "name": { "dataType": "string", "required": true }, "description": { "dataType": "string", "required": true }, "type": { "dataType": "string", "required": true }, "sunlight": { "dataType": "string", "required": true }, "wateringFrequency": { "dataType": "string", "required": true }, "wateringDescription": { "dataType": "string", "required": true }, "imageUri": { "dataType": "string", "required": true }, "wateringDates": { "dataType": "array", "array": { "dataType": "string" }, "required": true } }, "validators": {} },
+    },
+    // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+    "Omit_IPlant._id_": {
+        "dataType": "refAlias",
+        "type": { "ref": "Pick_IPlant.Exclude_keyofIPlant._id__", "validators": {} },
     },
     // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
 };
@@ -238,6 +262,30 @@ function RegisterRoutes(app) {
                     controller.setStatus(undefined);
                 }
                 const promise = controller.getAllPlants.apply(controller, validatedArgs);
+                promiseHandler(controller, promise, response, undefined, next);
+            }
+            catch (err) {
+                return next(err);
+            }
+        });
+    });
+    // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+    app.put('/api/v1/plants/:plantId', ...((0, runtime_1.fetchMiddlewares)(plants_1.PlantsController)), ...((0, runtime_1.fetchMiddlewares)(plants_1.PlantsController.prototype.updatePlant)), function PlantsController_updatePlant(request, response, next) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const args = {
+                plantId: { "in": "path", "name": "plantId", "required": true, "dataType": "string" },
+                plant: { "in": "body", "name": "plant", "required": true, "ref": "Omit_IPlant._id_" },
+            };
+            // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+            let validatedArgs = [];
+            try {
+                validatedArgs = getValidatedArgs(args, request, response);
+                const container = typeof ioc_1.iocContainer === 'function' ? ioc_1.iocContainer(request) : ioc_1.iocContainer;
+                const controller = yield container.get(plants_1.PlantsController);
+                if (typeof controller['setStatus'] === 'function') {
+                    controller.setStatus(undefined);
+                }
+                const promise = controller.updatePlant.apply(controller, validatedArgs);
                 promiseHandler(controller, promise, response, undefined, next);
             }
             catch (err) {
@@ -368,7 +416,11 @@ let AppHelper = AppHelper_1 = class AppHelper {
         if (!this.app) {
             this.app = (0, express_1.default)();
             this.app.get("/api-docs/swagger.json", (_req, res) => res.json(swaggerDocument));
-            const allowedOrigins = ["http://localhost:4200", undefined];
+            const allowedOrigins = [
+                "http://localhost:4201",
+                "http://localhost:4202",
+                undefined,
+            ];
             this.app.use((0, cors_1.default)({
                 origin: (origin, callback) => {
                     if (allowedOrigins.includes(origin)) {
@@ -664,6 +716,11 @@ let PlantsRepository = PlantsRepository_1 = class PlantsRepository {
             return this.getCollection().deleteOne();
         });
     }
+    update(plantId, plant) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            return (yield this.getCollection().findOneAndUpdate({ id: plantId }, { $set: plant }, { upsert: true, returnDocument: "after" })).value;
+        });
+    }
 };
 tslib_1.__decorate([
     (0, inversify_1.inject)(logging_helper_1.LoggingHelper),
@@ -718,6 +775,9 @@ let PlantsService = PlantsService_1 = class PlantsService {
     }
     getAllPlants() {
         return this.plantsRepository.getAll();
+    }
+    updatePlant(plantId, plant) {
+        return this.plantsRepository.update(plantId, plant);
     }
 };
 tslib_1.__decorate([
@@ -830,7 +890,7 @@ module.exports = require("winston");
 /***/ "./src/generated/swagger.json":
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"components":{"examples":{},"headers":{},"parameters":{},"requestBodies":{},"responses":{},"schemas":{"IPlant":{"properties":{"_id":{"properties":{"$oid":{"type":"string"}},"required":["$oid"],"type":"object"},"id":{"type":"string"},"name":{"type":"string"},"description":{"type":"string"},"type":{"type":"string"},"sunlight":{"type":"string"},"wateringFrequency":{"type":"string"},"wateringDescription":{"type":"string"},"imageUri":{"type":"string"}},"required":["_id","id","name","description","type","sunlight","wateringFrequency","wateringDescription","imageUri"],"type":"object","additionalProperties":false},"NotFoundError":{"properties":{"name":{"type":"string"},"message":{"type":"string"},"stack":{"type":"string"}},"required":["name","message"],"type":"object","additionalProperties":false},"UnauthorizedError":{"properties":{"name":{"type":"string"},"message":{"type":"string"},"stack":{"type":"string"}},"required":["name","message"],"type":"object","additionalProperties":false}},"securitySchemes":{}},"info":{"title":"TSOA","version":"1.0.0","description":"Build swagger-compliant REST APIs using TypeScript and Node","license":{"name":"MIT"},"contact":{"name":"unknown"}},"openapi":"3.0.0","paths":{"/api/v1/plants/{plantId}":{"get":{"operationId":"GetPlant","responses":{"200":{"description":"Ok","content":{"application/json":{"schema":{"$ref":"#/components/schemas/IPlant"}}}},"401":{"description":"Request not authorized.","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UnauthorizedError"}}}},"404":{"description":"Record not found.","content":{"application/json":{"schema":{"$ref":"#/components/schemas/NotFoundError"}}}}},"tags":["Plants"],"security":[],"parameters":[{"in":"path","name":"plantId","required":true,"schema":{"type":"string"}}]}},"/api/v1/plants":{"get":{"operationId":"GetAllPlants","responses":{"200":{"description":"Ok","content":{"application/json":{"schema":{"items":{"$ref":"#/components/schemas/IPlant"},"type":"array"}}}},"401":{"description":"Request not authorized.","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UnauthorizedError"}}}}},"tags":["Plants"],"security":[],"parameters":[]}}},"servers":[{"url":"/"}]}');
+module.exports = JSON.parse('{"components":{"examples":{},"headers":{},"parameters":{},"requestBodies":{},"responses":{},"schemas":{"IPlant":{"properties":{"_id":{"properties":{"$oid":{"type":"string"}},"required":["$oid"],"type":"object"},"id":{"type":"string"},"name":{"type":"string"},"description":{"type":"string"},"type":{"type":"string"},"sunlight":{"type":"string"},"wateringFrequency":{"type":"string"},"wateringDescription":{"type":"string"},"imageUri":{"type":"string"},"wateringDates":{"items":{"type":"string"},"type":"array"}},"required":["_id","id","name","description","type","sunlight","wateringFrequency","wateringDescription","imageUri","wateringDates"],"type":"object","additionalProperties":false},"NotFoundError":{"properties":{"name":{"type":"string"},"message":{"type":"string"},"stack":{"type":"string"}},"required":["name","message"],"type":"object","additionalProperties":false},"UnauthorizedError":{"properties":{"name":{"type":"string"},"message":{"type":"string"},"stack":{"type":"string"}},"required":["name","message"],"type":"object","additionalProperties":false},"Pick_IPlant.Exclude_keyofIPlant._id__":{"properties":{"id":{"type":"string"},"name":{"type":"string"},"description":{"type":"string"},"type":{"type":"string"},"sunlight":{"type":"string"},"wateringFrequency":{"type":"string"},"wateringDescription":{"type":"string"},"imageUri":{"type":"string"},"wateringDates":{"items":{"type":"string"},"type":"array"}},"required":["id","name","description","type","sunlight","wateringFrequency","wateringDescription","imageUri","wateringDates"],"type":"object","description":"From T, pick a set of properties whose keys are in the union K"},"Omit_IPlant._id_":{"$ref":"#/components/schemas/Pick_IPlant.Exclude_keyofIPlant._id__","description":"Construct a type with the properties of T except for those in type K."}},"securitySchemes":{}},"info":{"title":"TSOA","version":"1.0.0","description":"Build swagger-compliant REST APIs using TypeScript and Node","license":{"name":"MIT"},"contact":{"name":"unknown"}},"openapi":"3.0.0","paths":{"/api/v1/plants/{plantId}":{"get":{"operationId":"GetPlant","responses":{"200":{"description":"Ok","content":{"application/json":{"schema":{"$ref":"#/components/schemas/IPlant"}}}},"401":{"description":"Request not authorized.","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UnauthorizedError"}}}},"404":{"description":"Record not found.","content":{"application/json":{"schema":{"$ref":"#/components/schemas/NotFoundError"}}}}},"tags":["Plants"],"security":[],"parameters":[{"in":"path","name":"plantId","required":true,"schema":{"type":"string"}}]},"put":{"operationId":"UpdatePlant","responses":{"200":{"description":"Ok","content":{"application/json":{"schema":{"$ref":"#/components/schemas/IPlant"}}}},"401":{"description":"Request not authorized.","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UnauthorizedError"}}}},"404":{"description":"Record not found.","content":{"application/json":{"schema":{"$ref":"#/components/schemas/NotFoundError"}}}}},"tags":["Plants"],"security":[],"parameters":[{"in":"path","name":"plantId","required":true,"schema":{"type":"string"}}],"requestBody":{"required":true,"content":{"application/json":{"schema":{"$ref":"#/components/schemas/Omit_IPlant._id_"}}}}}},"/api/v1/plants":{"get":{"operationId":"GetAllPlants","responses":{"200":{"description":"Ok","content":{"application/json":{"schema":{"items":{"$ref":"#/components/schemas/IPlant"},"type":"array"}}}},"401":{"description":"Request not authorized.","content":{"application/json":{"schema":{"$ref":"#/components/schemas/UnauthorizedError"}}}}},"tags":["Plants"],"security":[],"parameters":[]}}},"servers":[{"url":"/"}]}');
 
 /***/ })
 
