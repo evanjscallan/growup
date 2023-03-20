@@ -5,5 +5,9 @@ export const EditModeButton = (props: any) => {
     props.setEditMode(!props.editMode);
     console.log(props.editMode);
   };
-  return <button onClick={() => toggleEditMode()}>Edit Watering Dates</button>;
+  return (
+    <button onClick={() => toggleEditMode()}>
+      {props.editMode ? "Confirm Selection(s)" : "Edit Watering Dates"}
+    </button>
+  );
 };

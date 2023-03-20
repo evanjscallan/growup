@@ -56,6 +56,7 @@ select{
 
 }
 .properties-outer{
+  border-radius: 5px;
   font-family: 'Lato', sans-serif;
   position: fixed;
   text-align: center;
@@ -66,15 +67,15 @@ select{
   display: flex;
   padding:1rem;
   left: 3rem;
-  top: 1rem;
+  top: 2rem;
   flex-direction: column;
   justify-content: space-around;
-  
 }
 
 
 
 .plant-info-properties{
+  
   font-family: 'Lato', sans-serif;
   display: flex;
   justify-content: center;
@@ -106,8 +107,6 @@ select{
   display: flex;
   justify-content: center;
   align-items: center;
-  
-  
 }
 
 
@@ -227,7 +226,8 @@ select{
 .plant-info-modal {
   opacity: 0;
   display: flex;
-  text-align: center;
+  top: 1.8rem;
+  border-radius: 5px;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -235,22 +235,72 @@ select{
   overflow-x: none;
   font-family: "open sans";
   position: fixed;
-  background-color: #114b5f;
-  color: white;
-  aspect-ratio: 4/3;
-  padding-top: 370px;
-  padding-right: 100px;
-  padding-left: 100px;
-  height: 500px;
-  margin: 2rem;
-  width: 30%;
-  left: 1rem;
+  background-color: #c6dabf;
+  color: black;
+  width: 30rem;
+  padding: 1rem;
+  left: 2.8rem;
   opacity: 100%;
   box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.3),
     2px 2px 2px 2px rgba(0, 0, 0, 0.3);
 }
-.plant-info-modal h1 {
-  padding-top: 100px;
+
+
+
+.plant-image {
+  margin: 2rem;
+  width: 60%;
+}
+
+.plant-title-img-buttons{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+.plant-title-img-buttons button{
+  width: 11rem;
+}
+
+
+.Collapsible{
+  background-color: #89c7e6e4;
+  color: black;
+  box-shadow: 1px 1px 3px 1px rgba(0,0,0,0.6);
+  padding: 1rem;
+  text-align: center;
+  margin: 1rem;
+  padding: 1rem;
+  width: 22rem;
+  border-radius: 5px;
+  opacity: 100%;
+  font-size: 1rem;
+ 
+ 
+  
+}
+.buttons{
+  
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.plant-details{
+  
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+ 
+}
+
+.plant-info-modal h2 {
+  width: 70%;
 }
 
 .plant-info-modal ul {
@@ -258,12 +308,12 @@ select{
 }
 
 .plant-modal-close-out {
-  right: 58%;
-  position: fixed;
-  top:  70px;
+  top: 1.5rem;
+  right: 1rem;
+  position: absolute;
   cursor: pointer;
-  height: 50px;
-  color: white;
+  height: 30px;
+  color: black;
 }
 
 @keyframes plant-out {
@@ -277,9 +327,6 @@ select{
   }
 }
 
-.plant-image {
-  margin: 2rem;
-}
 
 @media only screen and (max-width: 768px) {
   /* For mobile phones: */
