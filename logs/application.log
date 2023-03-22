@@ -1194,3 +1194,27 @@
 {"level":"info","message":"Listening at http://localhost:4201/api","service":"user-service","timestamp":"2023-03-20T00:13:25.421Z"}
 {"level":"info","message":"Connection to database","service":"user-service","timestamp":"2023-03-20T00:13:25.422Z"}
 {"level":"info","message":"Connection successful","service":"user-service","timestamp":"2023-03-20T00:13:25.425Z"}
+{"level":"info","message":"Listening at http://localhost:4201/api","service":"user-service","timestamp":"2023-03-21T17:32:22.393Z"}
+{"level":"info","message":"Connection to database","service":"user-service","timestamp":"2023-03-21T17:32:22.395Z"}
+{"level":"info","message":"Connection successful","service":"user-service","timestamp":"2023-03-21T17:32:22.398Z"}
+{"level":"info","message":"Listening at http://localhost:4201/api","service":"user-service","timestamp":"2023-03-21T17:32:38.736Z"}
+{"level":"info","message":"Connection to database","service":"user-service","timestamp":"2023-03-21T17:32:38.737Z"}
+{"level":"info","message":"Connection successful","service":"user-service","timestamp":"2023-03-21T17:32:38.740Z"}
+{"level":"info","message":"Listening at http://localhost:4201/api","service":"user-service","timestamp":"2023-03-21T19:05:16.013Z"}
+{"level":"info","message":"Connection to database","service":"user-service","timestamp":"2023-03-21T19:05:16.014Z"}
+{"level":"info","message":"Connection successful","service":"user-service","timestamp":"2023-03-21T19:05:16.017Z"}
+{"level":"warn","message":"Validation error: ValidateError","service":"user-service","timestamp":"2023-03-21T19:50:13.850Z"}
+{"level":"warn","message":"Validation error: ValidateError","service":"user-service","timestamp":"2023-03-21T19:50:13.860Z"}
+{"level":"info","message":"Listening at http://localhost:4201/api","service":"user-service","timestamp":"2023-03-21T19:51:23.955Z"}
+{"level":"info","message":"Connection to database","service":"user-service","timestamp":"2023-03-21T19:51:23.957Z"}
+{"level":"info","message":"Connection successful","service":"user-service","timestamp":"2023-03-21T19:51:23.960Z"}
+{"level":"warn","message":"Validation error: ValidateError","service":"user-service","timestamp":"2023-03-21T19:51:32.365Z"}
+{"level":"warn","message":"Validation error: ValidateError","service":"user-service","timestamp":"2023-03-21T19:51:32.368Z"}
+{"level":"warn","message":"Validation error: ValidateError","service":"user-service","timestamp":"2023-03-21T19:56:18.341Z"}
+{"level":"warn","message":"Validation error: ValidateError","service":"user-service","timestamp":"2023-03-21T19:56:18.373Z"}
+{"level":"warn","message":"Validation error: ValidateError","service":"user-service","timestamp":"2023-03-21T19:58:07.190Z"}
+{"level":"warn","message":"Validation error: ValidateError","service":"user-service","timestamp":"2023-03-21T19:58:07.206Z"}
+{"level":"warn","message":"Validation error: ValidateError","service":"user-service","timestamp":"2023-03-21T19:58:40.724Z"}
+{"level":"warn","message":"Validation error: ValidateError","service":"user-service","timestamp":"2023-03-21T19:58:40.727Z"}
+{"level":"warn","message":"Validation error: ValidateError","service":"user-service","timestamp":"2023-03-21T19:59:27.900Z"}
+{"level":"warn","message":"Validation error: ValidateError","service":"user-service","timestamp":"2023-03-21T19:59:27.909Z"}

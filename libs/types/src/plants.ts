@@ -1,5 +1,5 @@
 export interface IPlant {
-  _id: {
+  _id?: {
     $oid: string;
   };
   id: string;

@@ -51,7 +51,6 @@
 					}
 				},
 				"required": [
-					"_id",
 					"id",
 					"name",
 					"description",

@@ -14,7 +14,7 @@ const models: TsoaRoute.Models = {
     "IPlant": {
         "dataType": "refObject",
         "properties": {
-            "_id": {"dataType":"nestedObjectLiteral","nestedProperties":{"$oid":{"dataType":"string","required":true}},"required":true},
+            "_id": {"dataType":"nestedObjectLiteral","nestedProperties":{"$oid":{"dataType":"string","required":true}}},
             "id": {"dataType":"string","required":true},
             "name": {"dataType":"string","required":true},
             "description": {"dataType":"string","required":true},

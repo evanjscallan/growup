@@ -88,7 +88,12 @@ export const DropdownOptionUI: FC<DropdownOptionUIProps> = ({
         <h2>Plant Information for {name}</h2>
 
         <div className="buttons">
-          <EditModeButton editMode={editMode} setEditMode={setEditMode} />
+          <EditModeButton
+            editMode={editMode}
+            setEditMode={setEditMode}
+            datesArr={datesArr}
+            currentPlantId={selectedPlant.id}
+          />
           <ClearButton datesArr={datesArr} setDatesArr={setDatesArr} />
         </div>
       </div>
