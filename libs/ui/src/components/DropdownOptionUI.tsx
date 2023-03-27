@@ -37,41 +37,6 @@ export const DropdownOptionUI: FC<DropdownOptionUIProps> = ({
   if (selectedPlant === undefined) {
     return null;
   }
-  const MinusIcon = () => {
-    return (
-      <span className="panel__header-icon">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="20"
-          height="20"
-          viewBox="0 0 16 16"
-        >
-          <path
-            fill="currentColor"
-            d="M14,9H2A1,1,0,0,1,2,7H14a1,1,0,0,1,0,2Z"
-          />
-        </svg>
-      </span>
-    );
-  };
-
-  const PlusIcon = () => {
-    return (
-      <span className="panel__header-icon">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="20"
-          height="20"
-          viewBox="0 0 16 16"
-        >
-          <path
-            fill="currentColor"
-            d="M14,7H9V2A1,1,0,0,0,7,2V7H2A1,1,0,0,0,2,9H7v5a1,1,0,0,0,2,0V9h5a1,1,0,0,0,0-2Z"
-          />
-        </svg>
-      </span>
-    );
-  };
 
   const { name, description, sunlight, imageUri, wateringDescription } =
     selectedPlant;
@@ -103,7 +68,7 @@ export const DropdownOptionUI: FC<DropdownOptionUIProps> = ({
         </Collapsible>
 
         <Collapsible trigger="Description">
-          <b>Description:</b> {description} <MinusIcon />
+          <b>Description:</b> {description}
         </Collapsible>
 
         <Collapsible trigger="Watering Frequency">

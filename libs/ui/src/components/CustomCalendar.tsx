@@ -1,5 +1,16 @@
-import { useState, useEffect, Dispatch, SetStateAction, FC } from "react";
+import {
+  useState,
+  useEffect,
+  Dispatch,
+  SetStateAction,
+  FC,
+  useContext,
+  useRef,
+} from "react";
 import anime from "animejs";
+import leafIcon from "./leaf.svg";
+import { HoverHelp } from "./HoverHelp";
+import { usePlants } from "@grow-up/ui";
 
 import {
   generateCalendar,
@@ -25,8 +36,12 @@ export const CustomCalendar: FC<CustomCalendarProps> = ({
   const [activeCellDateString, setActiveCellDateString] = useState<
     string | null
   >(null);
+  const [showIcon, setShowIcon]: any = useState(false);
+  const [showHoverHelp, setShowHoverHelp] = useState(false);
+  let [highlightedDate, setHighlightedDate] = useState("");
 
   const dates = generateCalendar();
+  const { plants } = usePlants();
 
   useEffect(() => {
     anime({
@@ -44,31 +59,34 @@ export const CustomCalendar: FC<CustomCalendarProps> = ({
   //targets
   const toggleActiveCell = (date: Date) => {
     const dateString = date.toISOString();
-
     if (editMode) {
       const newDatesArr = [...datesArr];
       newDatesArr.push(date.toDateString());
       setDatesArr(newDatesArr);
       setActiveCellDateString(dateString);
-      console.log(datesArr);
+      addLeafIcon(showIcon, setShowIcon);
     } else {
       setActiveCellDateString(dateString);
     }
   };
 
-  const changeColor = (datesArr: any, day: any, e: any) => {
-    if (e.target.className === "cellBlock active") {
-      anime({
-        targets: ".cellBlockactive",
-        backgroundColor: [
-          { value: "#FFF" }, // Or #FFFFFF
-          { value: "rgb(255, 0, 0)" },
-          { value: "hsl(100, 60%, 60%)" },
-        ],
-        easing: "linear",
-        direction: "alternate",
-        duration: 200,
-      });
+  const addLeafIcon = (showIcon: boolean, setShowIcon: any) => {
+    setShowIcon(true);
+  };
+
+  const HoverHelperDisplay = (day: any, date: any) => {
+    if (!editMode) {
+      if (document.activeElement) {
+        setShowHoverHelp(true);
+        setHighlightedDate(day);
+      }
+    }
+  };
+
+  const HoverHelperHidden = (day: any, date: any) => {
+    if (!editMode) {
+      setShowHoverHelp(false);
+      setHighlightedDate("");
     }
   };
 
@@ -105,7 +123,8 @@ export const CustomCalendar: FC<CustomCalendarProps> = ({
                       const date = getDate(day);
                       return (
                         <div
-                          onMouseEnter={(e) => changeColor(datesArr, day, e)}
+                          //onMouseEnter={() => HoverHelperDisplay(day, date)}
+                          //onMouseLeave={() => HoverHelperHidden(day, date)}
                           key={date}
                           onClick={() => toggleActiveCell(day)}
                           className={`cellBlock ${
@@ -114,8 +133,16 @@ export const CustomCalendar: FC<CustomCalendarProps> = ({
                               : "inactive"
                           }`}
                         >
-                          <p className="text"></p>
-                          <p className="cell text bolded">{date}</p>
+                          <p className="cell text bolded">
+                            {date} <p className="text"></p>
+                            {activeCellDateString
+                              ? highlightedDate.toString()
+                              : ""}
+                          </p>
+
+                          {showIcon && datesArr.includes(day.toDateString()) ? (
+                            <img alt="leaf icon" src={leafIcon} />
+                          ) : null}
                         </div>
                       );
                     })}

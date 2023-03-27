@@ -3,6 +3,7 @@ import {
   CustomCalendar,
   PlantDropdown,
   DropdownOptionUI,
+  HoverHelp,
 } from "@grow-up/ui";
 import { ClearButton } from "libs/ui/src/components/ClearButton";
 import { useState } from "react";
@@ -59,6 +60,7 @@ export const App: FC = () => {
           setDatesArr={setDatesArr}
         />
       </div>
+      <HoverHelp />
     </>
   );
 };

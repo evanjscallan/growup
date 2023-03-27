@@ -34,13 +34,14 @@ export const PlantDropdown: FC<PlantDropdownProps> = ({
       <div className="plant-info-properties">
         <label htmlFor="plant-names"></label>
         <select
+          name="plant-names"
+          title="plant-names"
           value="select plant..."
           className="plant-dropdown"
           id="dropdown2"
           onChange={(event: React.ChangeEvent<HTMLSelectElement>) =>
             displayPlantInfo(event)
           }
-          name="plant-names"
         >
           <option></option>
           {plants.map((plant) => (

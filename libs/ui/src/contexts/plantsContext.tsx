@@ -5,6 +5,7 @@ import { createContext, FC, ProviderProps, useEffect, useState } from "react";
 interface PlantsContextValue {
   plants: IPlant[];
   updateWateringDates: (datesArr: string[], currentPlantId: string) => void;
+  plantsThatNeedWatering: (datesArr: string[], currentPlantId: string) => void;
 }
 
 type PlantsProviderProps = Omit<ProviderProps<PlantsContextValue>, "value">;
@@ -17,6 +18,7 @@ export const PlantsContext = createContext({} as PlantsContextValue);
 
 export const PlantsProvider: FC<PlantsProviderProps> = ({ children }) => {
   const [plants, setPlants] = useState<IPlant[]>([]);
+  const [matches, setMatches] = useState([]);
 
   useEffect(() => {
     apiClient
@@ -51,9 +53,24 @@ export const PlantsProvider: FC<PlantsProviderProps> = ({ children }) => {
       });
   };
 
+  const plantsThatNeedWatering = (
+    datesArr: string[],
+    currentPlantId: string
+  ) => {
+    const matchesArr: any = [];
+    const plant = apiClient.get<IPlant[]>("/plants").then((response) => {
+      const plantMatches = [
+        ...plants.filter((plant) => plant.wateringDates === datesArr),
+      ];
+      matchesArr.push(response.data);
+      setMatches(matchesArr);
+    });
+  };
+
   const contextValue = {
     plants,
     updateWateringDates,
+    plantsThatNeedWatering,
   };
 
   return (

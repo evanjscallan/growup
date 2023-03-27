@@ -1218,3 +1218,25 @@
 {"level":"warn","message":"Validation error: ValidateError","service":"user-service","timestamp":"2023-03-21T19:58:40.727Z"}
 {"level":"warn","message":"Validation error: ValidateError","service":"user-service","timestamp":"2023-03-21T19:59:27.900Z"}
 {"level":"warn","message":"Validation error: ValidateError","service":"user-service","timestamp":"2023-03-21T19:59:27.909Z"}
+{"level":"info","message":"Listening at http://localhost:4201/api","service":"user-service","timestamp":"2023-03-22T18:14:58.397Z"}
+{"level":"info","message":"Connection to database","service":"user-service","timestamp":"2023-03-22T18:14:58.398Z"}
+{"level":"info","message":"Connection successful","service":"user-service","timestamp":"2023-03-22T18:14:58.402Z"}
+{"level":"info","message":"Listening at http://localhost:4201/api","service":"user-service","timestamp":"2023-03-22T22:11:31.104Z"}
+{"level":"info","message":"Connection to database","service":"user-service","timestamp":"2023-03-22T22:11:31.105Z"}
+{"level":"info","message":"Connection successful","service":"user-service","timestamp":"2023-03-22T22:11:31.108Z"}
+{"level":"info","message":"Listening at http://localhost:4201/api","service":"user-service","timestamp":"2023-03-23T22:53:38.877Z"}
+{"level":"info","message":"Connection to database","service":"user-service","timestamp":"2023-03-23T22:53:38.879Z"}
+{"level":"info","message":"Connection successful","service":"user-service","timestamp":"2023-03-23T22:53:38.882Z"}
+{"level":"info","message":"Listening at http://localhost:4201/api","service":"user-service","timestamp":"2023-03-24T19:48:39.270Z"}
+{"level":"info","message":"Connection to database","service":"user-service","timestamp":"2023-03-24T19:48:39.271Z"}
+{"level":"info","message":"Connection successful","service":"user-service","timestamp":"2023-03-24T19:48:39.275Z"}
+{"level":"info","message":"Listening at http://localhost:4201/api","service":"user-service","timestamp":"2023-03-26T15:42:59.597Z"}
+{"level":"info","message":"Connection to database","service":"user-service","timestamp":"2023-03-26T15:42:59.598Z"}
+{"level":"info","message":"Connection successful","service":"user-service","timestamp":"2023-03-26T15:42:59.601Z"}
+{"level":"error","message":"Internal server error: Error: querySrv ECONNREFUSED _mongodb._tcp.growup.sxhhgeu.mongodb.net","service":"user-service","timestamp":"2023-03-26T22:30:32.036Z"}
+{"level":"info","message":"Listening at http://localhost:4201/api","service":"user-service","timestamp":"2023-03-26T22:33:24.804Z"}
+{"level":"info","message":"Connection to database","service":"user-service","timestamp":"2023-03-26T22:33:24.805Z"}
+{"level":"info","message":"Connection successful","service":"user-service","timestamp":"2023-03-26T22:33:24.808Z"}
+{"level":"info","message":"Listening at http://localhost:4201/api","service":"user-service","timestamp":"2023-03-27T21:32:33.002Z"}
+{"level":"info","message":"Connection to database","service":"user-service","timestamp":"2023-03-27T21:32:33.003Z"}
+{"level":"info","message":"Connection successful","service":"user-service","timestamp":"2023-03-27T21:32:33.006Z"}

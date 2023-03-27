@@ -18,8 +18,6 @@ h1 {
   font-weight: 300;
 }
 
-
-
 .cal{
   font-family: 'Lato';
 }
@@ -27,6 +25,10 @@ h1 {
 select option{
   background-color: #89c7e6e4;
   height: 200px;
+}
+
+.leaf-icon{
+  position: absolute;
 }
 
 button{
@@ -75,8 +77,6 @@ select{
   flex-direction: column;
   justify-content: space-around;
 }
-
-
 
 .plant-info-properties{
   
@@ -211,6 +211,10 @@ select{
   background-color: rgb(132, 197, 149);
 }
 
+.activeHover {
+  background-color: #63aaede4;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -288,14 +292,12 @@ select{
   background-color:#63aaede4;
 }
 .buttons{
-  
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
 }
 .plant-details{
-  
   display: flex;
   width: 100%;
   flex-direction: column;
