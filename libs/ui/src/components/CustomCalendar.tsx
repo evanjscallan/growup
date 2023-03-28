@@ -41,7 +41,7 @@ export const CustomCalendar: FC<CustomCalendarProps> = ({
   let [highlightedDate, setHighlightedDate] = useState("");
 
   const dates = generateCalendar();
-  const { plants } = usePlants();
+  const { plants, wateringCalendar } = usePlants();
 
   useEffect(() => {
     anime({
@@ -132,8 +132,16 @@ export const CustomCalendar: FC<CustomCalendarProps> = ({
                               ? "active"
                               : "inactive"
                           }`}
+                          style={{ position: "relative" }}
                         >
-                          <p className="cell text bolded">
+                          <p
+                            className="cell text bolded"
+                            style={{
+                              position: "absolute",
+                              top: ".5em",
+                              left: ".5em",
+                            }}
+                          >
                             {date} <p className="text"></p>
                             {activeCellDateString
                               ? highlightedDate.toString()
@@ -143,6 +151,30 @@ export const CustomCalendar: FC<CustomCalendarProps> = ({
                           {showIcon && datesArr.includes(day.toDateString()) ? (
                             <img alt="leaf icon" src={leafIcon} />
                           ) : null}
+
+                          <div style={{ display: "flex" }}>
+                            {(
+                              wateringCalendar.get(day.toDateString()) ?? []
+                            ).map((plantName: string) => {
+                              const plant = plants.find(
+                                (p) => p.name === plantName
+                              );
+
+                              if (plant) {
+                                return (
+                                  <img
+                                    src={plant.imageUri}
+                                    style={{
+                                      borderRadius: "50%",
+                                      width: 50,
+                                      height: 50,
+                                    }}
+                                  />
+                                );
+                              }
+                              return null;
+                            })}
+                          </div>
                         </div>
                       );
                     })}

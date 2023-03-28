@@ -6,6 +6,7 @@ interface PlantsContextValue {
   plants: IPlant[];
   updateWateringDates: (datesArr: string[], currentPlantId: string) => void;
   plantsThatNeedWatering: (datesArr: string[], currentPlantId: string) => void;
+  wateringCalendar: Map<string, string[]>;
 }
 
 type PlantsProviderProps = Omit<ProviderProps<PlantsContextValue>, "value">;
@@ -19,6 +20,21 @@ export const PlantsContext = createContext({} as PlantsContextValue);
 export const PlantsProvider: FC<PlantsProviderProps> = ({ children }) => {
   const [plants, setPlants] = useState<IPlant[]>([]);
   const [matches, setMatches] = useState([]);
+  const [wateringCalendar, setWateringCalendar] = useState<
+    Map<string, string[]>
+  >(new Map());
+
+  useEffect(() => {
+    const updatedCalendar = wateringCalendar;
+    plants.forEach(({ name, wateringDates }) => {
+      wateringDates.forEach((date) => {
+        updatedCalendar.set(date, [
+          ...new Set([...(wateringCalendar.get(date) ?? []), name]),
+        ]);
+      });
+    });
+    setWateringCalendar(updatedCalendar);
+  }, [plants]);
 
   useEffect(() => {
     apiClient
@@ -71,6 +87,7 @@ export const PlantsProvider: FC<PlantsProviderProps> = ({ children }) => {
     plants,
     updateWateringDates,
     plantsThatNeedWatering,
+    wateringCalendar,
   };
 
   return (
