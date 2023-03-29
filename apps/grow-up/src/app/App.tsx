@@ -3,12 +3,12 @@ import {
   CustomCalendar,
   PlantDropdown,
   DropdownOptionUI,
-  HoverHelp,
 } from "@grow-up/ui";
 import { ClearButton } from "libs/ui/src/components/ClearButton";
 import { useState } from "react";
 import type { FC } from "react";
-
+import ReactDOM from "react-dom";
+import Draggable from "react-draggable";
 import "./App.css";
 
 export const App: FC = () => {
@@ -21,12 +21,14 @@ export const App: FC = () => {
   const [datesArr, setDatesArr]: any = useState([]);
   //for targeting drop down selection in DropdownOptionUI and updating based on chosen plant
   const [dropdownSelection, setDropdownSelection] = useState("");
+  const [imageState, setImageState] = useState("");
 
   return (
     <>
       <div className={editMode ? "calendar-outer-edit" : "calendar-outer"}>
         <div className="properties-outer">
           <h2>Select a Plant</h2>
+
           <PlantDropdown
             dropdownSelection={dropdownSelection}
             setDropdownSelection={setDropdownSelection}
@@ -58,9 +60,10 @@ export const App: FC = () => {
           setEditMode={setEditMode}
           datesArr={datesArr}
           setDatesArr={setDatesArr}
+          imageState={imageState}
+          setImageState={setImageState}
         />
       </div>
-      <HoverHelp />
     </>
   );
 };

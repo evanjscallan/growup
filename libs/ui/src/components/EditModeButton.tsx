@@ -18,10 +18,10 @@ export const EditModeButton: FC<EditModeButton> = ({
   const toggleEditMode = () => {
     if (editMode) {
       updateWateringDates(datesArr, currentPlantId);
+      setEditMode(false);
+    } else {
+      setEditMode(true);
     }
-
-    setEditMode(!editMode);
-    console.log(editMode);
   };
   return (
     <button onClick={() => toggleEditMode()}>

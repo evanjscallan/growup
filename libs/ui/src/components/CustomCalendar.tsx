@@ -8,8 +8,6 @@ import {
   useRef,
 } from "react";
 import anime from "animejs";
-import leafIcon from "./leaf.svg";
-import { HoverHelp } from "./HoverHelp";
 import { usePlants } from "@grow-up/ui";
 
 import {
@@ -25,6 +23,8 @@ interface CustomCalendarProps {
   setEditMode: Dispatch<SetStateAction<boolean>>;
   datesArr: any;
   setDatesArr: any;
+  imageState: any;
+  setImageState: any;
 }
 
 export const CustomCalendar: FC<CustomCalendarProps> = ({
@@ -32,12 +32,13 @@ export const CustomCalendar: FC<CustomCalendarProps> = ({
   setEditMode,
   datesArr,
   setDatesArr,
+  imageState,
+  setImageState,
 }) => {
   const [activeCellDateString, setActiveCellDateString] = useState<
     string | null
   >(null);
   const [showIcon, setShowIcon]: any = useState(false);
-  const [showHoverHelp, setShowHoverHelp] = useState(false);
   let [highlightedDate, setHighlightedDate] = useState("");
 
   const dates = generateCalendar();
@@ -64,31 +65,12 @@ export const CustomCalendar: FC<CustomCalendarProps> = ({
       newDatesArr.push(date.toDateString());
       setDatesArr(newDatesArr);
       setActiveCellDateString(dateString);
-      addLeafIcon(showIcon, setShowIcon);
     } else {
       setActiveCellDateString(dateString);
     }
   };
 
-  const addLeafIcon = (showIcon: boolean, setShowIcon: any) => {
-    setShowIcon(true);
-  };
-
-  const HoverHelperDisplay = (day: any, date: any) => {
-    if (!editMode) {
-      if (document.activeElement) {
-        setShowHoverHelp(true);
-        setHighlightedDate(day);
-      }
-    }
-  };
-
-  const HoverHelperHidden = (day: any, date: any) => {
-    if (!editMode) {
-      setShowHoverHelp(false);
-      setHighlightedDate("");
-    }
-  };
+  const showPlantImageInCalendar = () => {};
 
   return (
     <div className="cal">
@@ -123,8 +105,6 @@ export const CustomCalendar: FC<CustomCalendarProps> = ({
                       const date = getDate(day);
                       return (
                         <div
-                          //onMouseEnter={() => HoverHelperDisplay(day, date)}
-                          //onMouseLeave={() => HoverHelperHidden(day, date)}
                           key={date}
                           onClick={() => toggleActiveCell(day)}
                           className={`cellBlock ${
@@ -148,10 +128,6 @@ export const CustomCalendar: FC<CustomCalendarProps> = ({
                               : ""}
                           </p>
 
-                          {showIcon && datesArr.includes(day.toDateString()) ? (
-                            <img alt="leaf icon" src={leafIcon} />
-                          ) : null}
-
                           <div style={{ display: "flex" }}>
                             {(
                               wateringCalendar.get(day.toDateString()) ?? []
@@ -163,6 +139,7 @@ export const CustomCalendar: FC<CustomCalendarProps> = ({
                               if (plant) {
                                 return (
                                   <img
+                                    alt={plant.name}
                                     src={plant.imageUri}
                                     style={{
                                       borderRadius: "50%",

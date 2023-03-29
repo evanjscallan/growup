@@ -59,7 +59,11 @@ export const DropdownOptionUI: FC<DropdownOptionUIProps> = ({
             datesArr={datesArr}
             currentPlantId={selectedPlant.id}
           />
-          <ClearButton datesArr={datesArr} setDatesArr={setDatesArr} />
+          <ClearButton
+            datesArr={datesArr}
+            editMode={editMode}
+            setDatesArr={setDatesArr}
+          />
         </div>
       </div>
       <div className="plant-details">
